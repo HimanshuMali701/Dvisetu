@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DviSetu | Challenge Command Center</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Application Header -->
+  <header id="app-header" class="app-header"></header>
+
+  <div class="app-container">
+    <!-- Dynamic Sidebar -->
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <!-- Main Body -->
+    <main class="main-content">
+      <!-- 10-step Stepper -->
+      <div id="lifecycle-stepper-container"></div>
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <span class="badge badge-open" id="detail-status-badge">Open</span>
+          <h1 class="page-title" id="detail-title" style="margin-top: 6px;">Loading Challenge...</h1>
+          <p class="page-subtitle" id="detail-subtitle">Department & Sector Information</p>
+        </div>
+        <div>
+          <a href="dashboard.html" class="btn btn-secondary btn-sm">&larr; Back to Dashboard</a>
+        </div>
+      </div>
+
+      <!-- Tabs Header -->
+      <div class="tabs-header">
+        <button class="tab-btn active" data-tab="tab-overview">Overview</button>
+        <button class="tab-btn" data-tab="tab-matches">Matched Startups (Rule Engine)</button>
+        <button class="tab-btn" data-tab="tab-applications">Applications & Eligibility</button>
+        <button class="tab-btn" data-tab="tab-evaluation">Expert Evaluation & Pilot Selection</button>
+      </div>
+
+      <!-- TAB 1: OVERVIEW -->
+      <div id="tab-overview" class="tab-content active">
+        <div class="grid grid-2-1">
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Problem Statement & Requirements</h3>
+              </div>
+              <div class="card-body">
+                <h4 style="font-size: 14px; font-weight: 700; color: var(--navy-primary); margin-bottom: 6px;">Problem Statement</h4>
+                <p id="detail-problem" style="margin-bottom: 16px; color: var(--text-main);"></p>
+
+                <h4 style="font-size: 14px; font-weight: 700; color: var(--navy-primary); margin-bottom: 6px;">Current Process Baseline</h4>
+                <p id="detail-process" style="margin-bottom: 16px; color: var(--text-muted);"></p>
+
+                <h4 style="font-size: 14px; font-weight: 700; color: var(--navy-primary); margin-bottom: 6px;">Expected Pilot Outcome</h4>
+                <p id="detail-outcome" style="margin-bottom: 16px; color: var(--text-muted);"></p>
+
+                <h4 style="font-size: 14px; font-weight: 700; color: var(--navy-primary); margin-bottom: 8px;">Technology Tags Required</h4>
+                <div id="detail-tags" class="tag-list" style="margin-bottom: 16px;"></div>
+
+                <h4 style="font-size: 14px; font-weight: 700; color: var(--navy-primary); margin-bottom: 6px;">Data & Infrastructure Provided</h4>
+                <p id="detail-data-req" style="color: var(--text-muted);"></p>
+              </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Target Success Metrics (KPIs)</h3>
+              </div>
+              <div class="card-body" style="padding: 0;">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>KPI Name</th>
+                      <th>Baseline</th>
+                      <th>Target</th>
+                      <th>Unit</th>
+                      <th>Direction</th>
+                    </tr>
+                  </thead>
+                  <tbody id="detail-kpis-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <!-- Commercials Card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Commercial & Timeline Parameters</h3>
+              </div>
+              <div class="card-body">
+                <div style="margin-bottom: 16px;">
+                  <span class="stat-label">Budget Range</span>
+                  <div id="detail-budget" style="font-size: 20px; font-weight: 700; color: var(--saffron-dark);"></div>
+                </div>
+                <div style="margin-bottom: 16px;">
+                  <span class="stat-label">Pilot Duration</span>
+                  <div id="detail-duration" style="font-size: 16px; font-weight: 700; color: var(--navy-primary);"></div>
+                </div>
+                <div>
+                  <span class="stat-label">Created Date</span>
+                  <div id="detail-created-date" style="font-size: 13px; color: var(--text-muted);"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mandatory Eligibility Criteria Card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Mandatory Eligibility Criteria</h3>
+              </div>
+              <div class="card-body">
+                <div id="detail-eligibility-list" class="checklist-item-group"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: MATCHED STARTUPS -->
+      <div id="tab-matches" class="tab-content">
+        <div class="callout info">
+          <strong>How Rule-Based Matching Works:</strong> Calculates tag overlap (80% weightage) and sector alignment (20% weightage) between challenge requirements and startup capability profiles.
+          <span style="display:block; margin-top:4px; font-size:12px; color:#1E40AF;">
+            ℹ️ <em>Future Roadmap: An embedding-based semantic vector matching model (e.g. IndicBERT / OpenAI embeddings) is planned for deep narrative match scoring.</em>
+          </span>
+        </div>
+
+        <div id="matched-startups-list" class="grid grid-2">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- TAB 3: APPLICATIONS & ELIGIBILITY -->
+      <div id="tab-applications" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Received Startup Proposals & Automated Eligibility Checklist</h3>
+          </div>
+          <div class="card-body" style="padding: 0;">
+            <div class="table-container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Startup Name</th>
+                    <th>Submission Date</th>
+                    <th>Proposed Budget</th>
+                    <th>Auto Eligibility Checklist</th>
+                    <th>Eligibility Status</th>
+                    <th>Proposal Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="applications-tbody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: EVALUATION & SELECTION -->
+      <div id="tab-evaluation" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Shortlisted Startups Expert Evaluation Summary</h3>
+            <a href="../expert/evaluate.html" class="btn btn-green btn-sm">Enter Expert Scoring Screen &rarr;</a>
+          </div>
+          <div class="card-body" style="padding: 0;">
+            <div class="table-container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Startup Name</th>
+                    <th>Evaluator Name</th>
+                    <th>Timestamp</th>
+                    <th>Weighted Score (out of 100)</th>
+                    <th>Evaluator Comments</th>
+                    <th>Pilot Action</th>
+                  </tr>
+                </thead>
+                <tbody id="evaluation-summary-tbody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/rules.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/challenge-detail.js"></script>
+</body>
+</html>

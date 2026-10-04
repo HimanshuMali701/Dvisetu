@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DviSetu | Active Pilot Execution</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Header -->
+  <header id="app-header" class="app-header"></header>
+
+  <div class="app-container">
+    <!-- Dynamic Sidebar -->
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">My Active Pilot Execution & Evidence Portal</h1>
+          <p class="page-subtitle">Track contract milestones, upload verification evidence, and monitor government payment releases.</p>
+        </div>
+      </div>
+
+      <!-- Contract Overview -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-body">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <span class="badge badge-pilot" id="my-pilot-status">In Progress</span>
+              <h2 style="font-size: 18px; font-weight: 700; color: var(--navy-primary); margin-top: 6px;" id="my-pilot-title">
+                Loading Pilot...
+              </h2>
+              <div style="font-size: 12px; color: var(--text-muted);" id="my-pilot-dept">--</div>
+            </div>
+            <div style="text-align: right;">
+              <span class="stat-label">Total Contract Value</span>
+              <div id="my-pilot-value" style="font-size: 24px; font-weight: 800; color: var(--saffron-dark);">₹0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestones & Evidence Upload -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Milestone Timeline & Evidence Submissions</h3>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Milestone Title</th>
+                  <th>Weightage</th>
+                  <th>Payment Amount</th>
+                  <th>Status</th>
+                  <th>Uploaded Evidence</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="my-milestones-tbody">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Evidence Upload Modal -->
+  <div id="upload-modal" class="modal-overlay">
+    <div class="modal-box" style="padding: 24px;">
+      <h3 style="font-size: 18px; color: var(--navy-primary); margin-bottom: 8px;">Upload Milestone Completion Evidence</h3>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
+        Submit technical test logs, sign-off letters, or architecture docs for government officer review.
+      </p>
+
+      <form id="evidence-form">
+        <input type="hidden" id="modal-milestone-id">
+        
+        <div class="form-group">
+          <label class="form-label">Completion Summary Note <span class="required">*</span></label>
+          <textarea id="modal-evidence-note" class="form-control" rows="3" placeholder="Summarize deliverables completed..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Attach Verification Document (PDF/ZIP) <span class="required">*</span></label>
+          <input type="file" id="modal-evidence-file" class="form-control" accept=".pdf,.doc,.docx,.zip">
+          <div class="form-hint">Selected file will be recorded for government audit.</div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('upload-modal').classList.remove('active')">Cancel</button>
+          <button type="submit" class="btn btn-green btn-sm">Submit Evidence for Approval &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/rules.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/my-pilot.js"></script>
+</body>
+</html>

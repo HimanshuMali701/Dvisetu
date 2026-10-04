@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DviSetu | Expert Evaluation Portal</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Header -->
+  <header id="app-header" class="app-header"></header>
+
+  <div class="app-container">
+    <!-- Dynamic Sidebar -->
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Expert Technical Evaluation Workspace</h1>
+          <p class="page-subtitle">Standardized multi-criteria technical proposal scoring with configurable weights and transparent audit logging.</p>
+        </div>
+        <div>
+          <button type="button" id="btn-toggle-weights" class="btn btn-secondary btn-sm">
+            ⚙️ Configure Weights
+          </button>
+        </div>
+      </div>
+
+      <!-- Configurable Weights Panel (Toggleable) -->
+      <div id="weights-config-panel" class="card" style="display: none; margin-bottom: 24px; background: #F8FAFC; border: 1px dashed var(--navy-primary);">
+        <div class="card-header">
+          <h3 class="card-title" style="font-size: 14px;">Configurable Scoring Dimension Weights (%)</h3>
+          <span style="font-size: 11px; color: var(--text-muted);">Adjust weighting percentages to match specific challenge RFP guidelines.</span>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-6">
+            <div>
+              <label class="form-label" style="font-size: 11px;">Feasibility (%)</label>
+              <input type="number" id="weight-feasibility" class="form-control" value="25" min="0" max="100">
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 11px;">Impact (%)</label>
+              <input type="number" id="weight-impact" class="form-control" value="25" min="0" max="100">
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 11px;">Innovation (%)</label>
+              <input type="number" id="weight-innovation" class="form-control" value="20" min="0" max="100">
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 11px;">Scalability (%)</label>
+              <input type="number" id="weight-scalability" class="form-control" value="15" min="0" max="100">
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 11px;">Cost (%)</label>
+              <input type="number" id="weight-cost" class="form-control" value="10" min="0" max="100">
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 11px;">Readiness (%)</label>
+              <input type="number" id="weight-readiness" class="form-control" value="5" min="0" max="100">
+            </div>
+          </div>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">
+            Total Sum: <strong id="weight-total-sum">100%</strong> &bull; Changes recalculate overall score live.
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-2-1">
+        <div>
+          <!-- Scoring Form Card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">1. Multi-Criteria Scoring Worksheet</h3>
+            </div>
+            <div class="card-body">
+              <form id="evaluation-form">
+                <div class="grid grid-2" style="margin-bottom: 20px;">
+                  <div class="form-group">
+                    <label class="form-label">Select Challenge <span class="required">*</span></label>
+                    <select id="select-eval-challenge" class="form-control" required>
+                      <!-- Injected via JS -->
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Select Shortlisted Startup <span class="required">*</span></label>
+                    <select id="select-eval-startup" class="form-control" required>
+                      <!-- Injected via JS -->
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Evaluator Identity / Designation <span class="required">*</span></label>
+                  <input type="text" id="input-evaluator-name" class="form-control" value="Dr. R. K. Shrivastava (Sr. Medical Director & Tech Expert)" required>
+                </div>
+
+                <!-- 6 Weighted Scoring Factors -->
+                <h4 style="font-size: 14px; font-weight: 700; color: var(--navy-primary); margin: 20px 0 12px 0;">
+                  Criteria Evaluation Sliders (Score 1.0 to 10.0)
+                </h4>
+
+                <div class="grid grid-2">
+                  <div class="form-group">
+                    <label class="form-label">Technical Feasibility (<span id="lbl-weight-feasibility">25%</span> Weight)</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <input type="range" id="score-feasibility" class="form-control" min="1" max="10" step="0.5" value="8.5">
+                      <span id="val-feasibility" style="font-weight: 700; width: 40px; text-align: right;">8.5</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">Expected Impact (<span id="lbl-weight-impact">25%</span> Weight)</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <input type="range" id="score-impact" class="form-control" min="1" max="10" step="0.5" value="9.0">
+                      <span id="val-impact" style="font-weight: 700; width: 40px; text-align: right;">9.0</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">Innovation & Originality (<span id="lbl-weight-innovation">20%</span> Weight)</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <input type="range" id="score-innovation" class="form-control" min="1" max="10" step="0.5" value="8.0">
+                      <span id="val-innovation" style="font-weight: 700; width: 40px; text-align: right;">8.0</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">Scalability & Modularity (<span id="lbl-weight-scalability">15%</span> Weight)</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <input type="range" id="score-scalability" class="form-control" min="1" max="10" step="0.5" value="8.5">
+                      <span id="val-scalability" style="font-weight: 700; width: 40px; text-align: right;">8.5</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">Cost Effectiveness (<span id="lbl-weight-cost">10%</span> Weight)</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <input type="range" id="score-cost" class="form-control" min="1" max="10" step="0.5" value="7.5">
+                      <span id="val-cost" style="font-weight: 700; width: 40px; text-align: right;">7.5</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">Implementation Readiness (<span id="lbl-weight-readiness">5%</span> Weight)</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <input type="range" id="score-readiness" class="form-control" min="1" max="10" step="0.5" value="8.0">
+                      <span id="val-readiness" style="font-weight: 700; width: 40px; text-align: right;">8.0</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 16px;">
+                  <label class="form-label">Detailed Qualitative Comments & Evaluator Justification <span class="required">*</span></label>
+                  <textarea id="input-eval-comments" class="form-control" rows="3" placeholder="Provide qualitative findings regarding technical architecture, feasibility in public environment, and risk profile..." required>Strong deployment track record across tertiary hospitals. Solution architecture complies with healthcare privacy and STQC guidelines.</textarea>
+                </div>
+
+                <button type="submit" class="btn btn-green" style="width: 100%; margin-top: 12px; font-weight: 700;">
+                  ✓ Submit Official Score & Record to Audit Log &rarr;
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- Live Calculated Total Score -->
+          <div class="card" style="margin-bottom: 24px; text-align: center;">
+            <div class="card-header">
+              <h3 class="card-title" style="width: 100%; text-align: center;">Computed Weighted Score</h3>
+            </div>
+            <div class="card-body">
+              <div id="live-total-score-badge" class="score-badge-large" style="width: 80px; height: 80px; font-size: 26px; margin: 0 auto 12px auto;">
+                84.5
+              </div>
+              <span style="font-size: 14px; font-weight: 700; color: var(--navy-primary); display: block;">Total Score (Out of 100)</span>
+              <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 4px;">
+                Calculated live via weighted formula: &sum; (Score &times; Weight &times; 10 / 100)
+              </span>
+            </div>
+          </div>
+
+          <!-- Structured Weight Breakdown Table -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Scoring Summary Breakdown</h3>
+            </div>
+            <div class="card-body" style="padding: 0;">
+              <table class="table" style="font-size: 12px;">
+                <thead>
+                  <tr>
+                    <th>Dimension</th>
+                    <th>Score</th>
+                    <th>Weight</th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody id="eval-breakdown-tbody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auditable Evaluation Log Table -->
+      <div class="card" style="margin-top: 24px;">
+        <div class="card-header">
+          <h3 class="card-title">2. Auditable Evaluation History & Timestamped Scores</h3>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Challenge</th>
+                  <th>Startup Name</th>
+                  <th>Evaluator</th>
+                  <th>Weighted Score</th>
+                  <th>Qualitative Remarks</th>
+                </tr>
+              </thead>
+              <tbody id="eval-history-tbody">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/rules.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/evaluate.js"></script>
+</body>
+</html>

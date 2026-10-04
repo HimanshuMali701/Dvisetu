@@ -1,0 +1,1779 @@
+/* ==========================================================================
+   DviSetu - Government Startup Innovation Procurement Platform
+   Styles: Solid-Card Government Portal Aesthetics (No Glassmorphic fluff)
+   Palette: Indian Tricolour Accents (Navy, Saffron, Green) on Light Grey
+   ========================================================================== */
+
+:root {
+  /* Palette */
+  --navy-primary: #0B2545;
+  --navy-dark: #06182E;
+  --navy-light: #134074;
+  --saffron-primary: #FF9933;
+  --saffron-dark: #E67E22;
+  --saffron-light: #FFF3E0;
+  --green-primary: #138808;
+  --green-dark: #15803D;
+  --green-light: #DCFCE7;
+  --red-primary: #DC2626;
+  --red-light: #FEE2E2;
+  --yellow-primary: #D97706;
+  --yellow-light: #FEF3C7;
+  
+  /* Neutral scale */
+  --bg-main: #F1F5F9;
+  --bg-surface: #FFFFFF;
+  --bg-sidebar: #0B2545;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+  --border-color: #CBD5E1;
+  --border-dark: #94A3B8;
+  
+  /* Layout */
+  --header-height: 64px;
+  --sidebar-width: 250px;
+  --border-radius: 6px;
+  --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --box-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  /* Font */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  font-size: 14px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--navy-light);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Accessibility Focus Ring */
+:focus-visible {
+  outline: 3px solid var(--saffron-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* ==========================================================================
+   Header & Top Bar
+   ========================================================================== */
+.app-header {
+  height: var(--header-height);
+  background-color: var(--navy-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 3px solid var(--saffron-primary);
+  box-shadow: var(--box-shadow-md);
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+}
+
+.brand-subtitle {
+  font-size: 11px;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.role-badge-pill {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.role-badge-pill.gov { border-left: 4px solid var(--saffron-primary); }
+.role-badge-pill.startup { border-left: 4px solid #3B82F6; }
+.role-badge-pill.expert { border-left: 4px solid var(--green-primary); }
+
+.btn-header-link {
+  background: transparent;
+  color: #E2E8F0;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 12px;
+  border-radius: var(--border-radius);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.btn-header-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.btn-reset-data {
+  background-color: #C2410C;
+  color: #FFFFFF;
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--border-radius);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-reset-data:hover {
+  background-color: #9A3412;
+}
+
+/* ==========================================================================
+   Layout & Sidebar
+   ========================================================================== */
+.app-container {
+  display: flex;
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.app-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--navy-dark);
+  color: #94A3B8;
+  padding: 20px 0;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu {
+  list-style: none;
+}
+
+.sidebar-menu-header {
+  padding: 8px 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748B;
+  font-weight: 700;
+}
+
+.sidebar-menu-item a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #CBD5E1;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-menu-item a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.sidebar-menu-item.active a {
+  background-color: rgba(255, 153, 51, 0.15);
+  color: #FFFFFF;
+  border-left-color: var(--saffron-primary);
+  font-weight: 600;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 24px 32px;
+  overflow-y: auto;
+}
+
+.full-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* ==========================================================================
+   Typography & Headers
+   ========================================================================== */
+.page-header {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 16px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy-primary);
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Lifecycle Stepper Component (10 Steps)
+   ========================================================================== */
+.stepper-container {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--box-shadow);
+}
+
+.stepper-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stepper-header-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  color: var(--navy-primary);
+}
+
+.stepper-current-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--saffron-dark);
+}
+
+.stepper-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  gap: 4px;
+}
+
+.stepper-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.stepper-step:hover {
+  background-color: #F8FAFC;
+}
+
+.step-icon-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #E2E8F0;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid #CBD5E1;
+  margin-bottom: 6px;
+  transition: all 0.2s;
+}
+
+.step-label {
+  font-size: 10px;
+  text-align: center;
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.stepper-step.completed .step-icon-circle {
+  background-color: var(--green-primary);
+  border-color: var(--green-dark);
+  color: #FFFFFF;
+}
+
+.stepper-step.completed .step-label {
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+.stepper-step.active .step-icon-circle {
+  background-color: var(--navy-primary);
+  border-color: var(--saffron-primary);
+  color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.3);
+}
+
+.stepper-step.active .step-label {
+  color: var(--navy-primary);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Cards & Surfaces
+   ========================================================================== */
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 24px;
+}
+
+.card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FAFAFA;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy-primary);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border-color);
+  background-color: #FAFAFA;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-6 { grid-template-columns: repeat(6, 1fr); }
+.grid-2-1 { grid-template-columns: 2fr 1fr; }
+
+@media (max-width: 992px) {
+  .grid-2, .grid-3, .grid-4, .grid-6, .grid-2-1 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stat Cards */
+.stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--navy-primary);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+.stat-card.saffron { border-top-color: var(--saffron-primary); }
+.stat-card.green { border-top-color: var(--green-primary); }
+.stat-card.red { border-top-color: var(--red-primary); }
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--navy-primary);
+  margin: 6px 0 4px 0;
+}
+
+.stat-subtext {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Badges, Tags & Status
+   ========================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.badge-draft { background-color: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; }
+.badge-open { background-color: #DBEAFE; color: #1E40AF; border: 1px solid #93C5FD; }
+.badge-screening { background-color: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+.badge-evaluation { background-color: #E0E7FF; color: #3730A3; border: 1px solid #C7D2FE; }
+.badge-pilot { background-color: #DCFCE7; color: #166534; border: 1px solid #86EFAC; }
+.badge-scaled { background-color: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; }
+.badge-closed { background-color: #F3F4F6; color: #6B7280; border: 1px solid #D1D5DB; }
+
+.badge-eligible { background-color: #DCFCE7; color: #166534; }
+.badge-ineligible { background-color: #FEE2E2; color: #991B1B; }
+.badge-review { background-color: #FEF3C7; color: #92400E; }
+
+.badge-passed { background-color: #DCFCE7; color: #166534; border: 1px solid #86EFAC; }
+.badge-failed { background-color: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; }
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background-color: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #334155;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.tag.matched {
+  background-color: #FEF3C7;
+  border-color: #FDE68A;
+  color: #92400E;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+.table-container {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.table th {
+  background-color: #F8FAFC;
+  color: var(--navy-primary);
+  font-weight: 700;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--border-color);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: #F8FAFC;
+}
+
+/* ==========================================================================
+   Forms & Buttons
+   ========================================================================== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--navy-primary);
+  margin-bottom: 6px;
+}
+
+.form-label .required {
+  color: var(--red-primary);
+  margin-left: 3px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-main);
+  background-color: #FFFFFF;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--navy-light);
+  box-shadow: 0 0 0 2px rgba(19, 64, 116, 0.15);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.2s, border-color 0.2s;
+  text-decoration: none !important;
+}
+
+.btn-primary {
+  background-color: var(--navy-primary);
+  color: #FFFFFF;
+}
+.btn-primary:hover {
+  background-color: var(--navy-dark);
+}
+
+.btn-saffron {
+  background-color: var(--saffron-primary);
+  color: #FFFFFF;
+}
+.btn-saffron:hover {
+  background-color: var(--saffron-dark);
+}
+
+.btn-green {
+  background-color: var(--green-primary);
+  color: #FFFFFF;
+}
+.btn-green:hover {
+  background-color: var(--green-dark);
+}
+
+.btn-secondary {
+  background-color: #E2E8F0;
+  color: #334155;
+  border-color: #CBD5E1;
+}
+.btn-secondary:hover {
+  background-color: #CBD5E1;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--navy-primary);
+  border-color: var(--navy-primary);
+}
+.btn-outline:hover {
+  background-color: rgba(11, 37, 69, 0.05);
+}
+
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+/* ==========================================================================
+   Tabs Component
+   ========================================================================== */
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 20px;
+  gap: 4px;
+}
+
+.tab-btn {
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  color: var(--navy-primary);
+}
+
+.tab-btn.active {
+  color: var(--navy-primary);
+  border-bottom-color: var(--saffron-primary);
+  background-color: #FFFFFF;
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* ==========================================================================
+   Pure CSS Progress Bars & Visuals
+   ========================================================================== */
+.progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #E2E8F0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 6px 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--navy-primary);
+  transition: width 0.4s ease;
+}
+
+.progress-bar-fill.green { background-color: var(--green-primary); }
+.progress-bar-fill.saffron { background-color: var(--saffron-primary); }
+.progress-bar-fill.red { background-color: var(--red-primary); }
+
+/* Score Gauge / Indicator */
+.score-badge-large {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: var(--navy-primary);
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 800;
+  border: 3px solid var(--saffron-primary);
+}
+
+/* Callout Box */
+.callout {
+  padding: 14px 18px;
+  border-radius: var(--border-radius);
+  background-color: #F8FAFC;
+  border-left: 4px solid var(--navy-primary);
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+.callout.info { border-left-color: #3B82F6; background-color: #EFF6FF; }
+.callout.warning { border-left-color: var(--saffron-primary); background-color: #FFFBEB; }
+.callout.success { border-left-color: var(--green-primary); background-color: #F0FDF4; }
+.callout.danger { border-left-color: var(--red-primary); background-color: #FEF2F2; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background-color: #FFFFFF;
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+}
+
+/* Toast System */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  min-width: 280px;
+  padding: 12px 18px;
+  border-radius: var(--border-radius);
+  background-color: var(--navy-primary);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--box-shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 4px solid var(--saffron-primary);
+  animation: slideIn 0.3s forwards;
+}
+.toast.success { border-left-color: var(--green-primary); }
+.toast.error { border-left-color: var(--red-primary); }
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Role Switcher Modal */
+.role-select-card {
+  background: #FFFFFF;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.role-select-card:hover {
+  border-color: var(--saffron-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-md);
+}
+
+/* Checklist items */
+.checklist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+.checklist-item:last-child {
+  border-bottom: none;
+}
+
+/* Tour Progress Bar */
+.tour-timer-bar-container {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.tour-timer-bar-fill {
+  height: 100%;
+  background-color: var(--saffron-primary);
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ==========================================================================
+   Government Enterprise Portal Extensions & Multi-Step Wizard
+   ========================================================================== */
+.gov-top-bar {
+  background-color: #06182E;
+  color: #94A3B8;
+  font-size: 11px;
+  padding: 4px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.gov-top-bar a {
+  color: #CBD5E1;
+  text-decoration: none;
+}
+.gov-top-bar a:hover {
+  text-decoration: underline;
+}
+
+.portal-disclaimer-footer {
+  background-color: #0B2545;
+  color: #94A3B8;
+  font-size: 12px;
+  padding: 16px 24px;
+  border-top: 2px solid var(--saffron-primary);
+  text-align: center;
+  margin-top: auto;
+}
+
+.portal-disclaimer-footer strong {
+  color: #FFFFFF;
+}
+
+/* Multi-Step Wizard Styles */
+.wizard-nav {
+  display: flex;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.wizard-step-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #F8FAFC;
+  border: none;
+  border-right: 1px solid var(--border-color);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s;
+  font-family: inherit;
+}
+.wizard-step-btn:last-child {
+  border-right: none;
+}
+.wizard-step-btn.active {
+  background-color: #FFFFFF;
+  border-bottom: 3px solid var(--navy-primary);
+}
+.wizard-step-btn.completed .wizard-num {
+  background-color: var(--green-primary);
+  color: #FFFFFF;
+}
+.wizard-step-btn.active .wizard-num {
+  background-color: var(--navy-primary);
+  color: #FFFFFF;
+}
+
+.wizard-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #E2E8F0;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.wizard-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy-primary);
+  display: block;
+}
+.wizard-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: block;
+}
+
+.wizard-pane {
+  display: none;
+}
+.wizard-pane.active {
+  display: block;
+}
+
+/* Search and Filter Toolbar */
+.filter-toolbar {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-input-wrapper {
+  flex: 1;
+  min-width: 240px;
+  position: relative;
+}
+
+.search-icon-badge {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.search-input-wrapper input {
+  padding-left: 36px;
+}
+
+/* Audit Trail Ledger */
+.audit-log-card {
+  border-left: 4px solid var(--navy-primary);
+}
+
+.audit-table td {
+  vertical-align: top;
+}
+
+.audit-time {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+.audit-action-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+  background-color: #F1F5F9;
+  color: var(--navy-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Document badge */
+.doc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background-color: #F1F5F9;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+/* ==========================================================================
+   Formal Portal Login Page (DviSetu - SIH26136)
+   ========================================================================== */
+.login-page-body {
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-page-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.login-card-container {
+  width: 100%;
+  max-width: 960px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.login-brand-banner {
+  background-color: var(--navy-primary);
+  color: #FFFFFF;
+  padding: 16px 28px;
+  border-bottom: 3px solid var(--saffron-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.login-brand-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.login-brand-text h1 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.login-brand-text p {
+  font-size: 11px;
+  color: #CBD5E1;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 2px 0 0 0;
+}
+
+.login-brand-badge {
+  font-size: 11px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FEF3C7;
+  border: 1px solid rgba(254, 243, 199, 0.3);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.login-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+}
+
+/* Left Column: Context & Workflow */
+.login-left-pane {
+  background-color: #F8FAFC;
+  padding: 32px 28px;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-left-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 8px;
+}
+
+.login-left-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.workflow-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 24px;
+}
+
+.workflow-step-box {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 12px 14px;
+  position: relative;
+}
+
+.workflow-step-box .step-number-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--navy-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.workflow-step-box .step-title-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-primary);
+  display: block;
+}
+
+.workflow-step-box .step-subtext {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.workflow-connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  color: var(--navy-light);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.login-left-compliance {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--saffron-primary);
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* Right Column: Roles & Form */
+.login-right-pane {
+  padding: 32px 30px;
+  background-color: #FFFFFF;
+}
+
+.login-section-header {
+  margin-bottom: 16px;
+}
+
+.login-section-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 4px;
+}
+
+.login-section-header p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Role Cards Grid */
+.role-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.role-card-item {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  padding: 14px 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+  position: relative;
+  text-align: left;
+  user-select: none;
+}
+
+.role-card-item:hover {
+  border-color: var(--navy-light);
+  background-color: #F8FAFC;
+}
+
+.role-card-item.selected {
+  border-color: var(--navy-primary);
+  border-width: 2px;
+  background-color: #F8FAFC;
+  padding: 13px 11px;
+}
+
+.role-card-item .role-check-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: transparent;
+  transition: all 0.15s ease;
+}
+
+.role-card-item.selected .role-check-indicator {
+  background-color: var(--navy-primary);
+  border-color: var(--navy-primary);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.role-card-icon {
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.role-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.role-card-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.35;
+  display: block;
+}
+
+/* Inline Alerts */
+.login-inline-alert {
+  display: none;
+  background-color: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  border-left: 4px solid var(--red-primary);
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  font-size: 12px;
+  color: #991B1B;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.login-inline-alert.visible {
+  display: flex;
+}
+
+.login-inline-alert .alert-icon {
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.login-inline-alert .alert-text {
+  flex: 1;
+}
+
+/* Form Styles */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper input {
+  padding-right: 40px;
+}
+
+.btn-toggle-password {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-toggle-password:hover {
+  color: var(--navy-primary);
+}
+
+.form-options-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 12px;
+}
+
+.forgot-password-link {
+  color: var(--navy-light);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+  color: var(--navy-primary);
+}
+
+/* Demo Mode Box */
+.demo-accounts-box {
+  margin-top: 22px;
+  padding: 14px 16px;
+  background-color: #F8FAFC;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.demo-accounts-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.demo-accounts-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--navy-primary);
+}
+
+.demo-accounts-badge {
+  font-size: 10px;
+  background-color: #E2E8F0;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.demo-accounts-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.demo-accounts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.demo-account-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.demo-account-chip:hover {
+  border-color: var(--navy-light);
+  background-color: #EFF6FF;
+}
+
+.demo-chip-role {
+  font-weight: 600;
+  color: var(--navy-primary);
+}
+
+.demo-chip-email {
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.demo-chip-fill {
+  font-size: 10px;
+  color: var(--navy-light);
+  font-weight: 600;
+}
+
+/* Minimal Footer */
+.login-portal-footer {
+  text-align: center;
+  padding: 16px 20px;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  background-color: #FFFFFF;
+}
+
+.login-portal-footer strong {
+  color: var(--navy-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 860px) {
+  .login-two-column {
+    grid-template-columns: 1fr;
+  }
+  .login-left-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 24px 20px;
+  }
+  .login-right-pane {
+    padding: 24px 20px;
+  }
+  .role-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   DviSetu Initial Login Portal (Clean 2-Step Flow)
+   ========================================================================== */
+.portal-login-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main);
+}
+
+.portal-login-header {
+  background-color: var(--navy-primary);
+  color: #FFFFFF;
+  border-bottom: 3px solid var(--saffron-primary);
+  padding: 14px 24px;
+}
+
+.portal-login-header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.portal-brand-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portal-brand-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+.portal-brand-subtitle {
+  font-size: 11px;
+  color: #94A3B8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: block;
+}
+
+.portal-login-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.portal-login-card {
+  width: 100%;
+  max-width: 860px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(11, 37, 69, 0.08);
+  padding: 36px 40px;
+}
+
+.portal-login-title-area {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.portal-login-title-area h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 6px;
+}
+
+.portal-login-title-area p {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* STEP 1: Role Selection Cards */
+.portal-step-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-light);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.portal-role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.portal-role-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  transition: all 0.18s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+
+.portal-role-card:hover {
+  border-color: var(--navy-primary);
+  box-shadow: 0 4px 10px rgba(11, 37, 69, 0.12);
+  transform: translateY(-2px);
+}
+
+.portal-role-card.gov {
+  border-top: 4px solid var(--navy-primary);
+}
+
+.portal-role-card.startup {
+  border-top: 4px solid var(--green-primary);
+}
+
+.portal-role-card.expert {
+  border-top: 4px solid var(--saffron-dark);
+}
+
+.portal-role-icon {
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.portal-role-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 8px;
+}
+
+.portal-role-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.portal-role-btn {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.portal-role-card.gov .portal-role-btn {
+  background-color: var(--navy-primary);
+  color: #FFFFFF;
+}
+.portal-role-card.gov .portal-role-btn:hover {
+  background-color: var(--navy-dark);
+}
+
+.portal-role-card.startup .portal-role-btn {
+  background-color: var(--green-primary);
+  color: #FFFFFF;
+}
+.portal-role-card.startup .portal-role-btn:hover {
+  background-color: var(--green-dark);
+}
+
+.portal-role-card.expert .portal-role-btn {
+  background-color: var(--saffron-primary);
+  color: #FFFFFF;
+}
+.portal-role-card.expert .portal-role-btn:hover {
+  background-color: var(--saffron-dark);
+}
+
+/* STEP 2: Dedicated Form View */
+.portal-form-view {
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.portal-selected-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #F1F5F9;
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 16px;
+}
+
+.portal-form-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 4px;
+}
+
+.portal-form-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.btn-change-role {
+  background: transparent;
+  border: none;
+  color: var(--navy-light);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s ease;
+}
+
+.btn-change-role:hover {
+  color: var(--navy-dark);
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .portal-login-card {
+    padding: 24px 18px;
+  }
+  .portal-role-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+

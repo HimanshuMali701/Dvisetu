@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DviSetu | Pilot Oversight &amp; Milestone Management</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Header -->
+  <header id="app-header" class="app-header"></header>
+
+  <div class="app-container">
+    <!-- Dynamic Sidebar -->
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Stepper (Steps 6-9) -->
+      <div id="lifecycle-stepper-container"></div>
+
+      <!-- Header Card -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-body" style="padding: 20px 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 4px;">
+                <span class="badge badge-pilot" id="pilot-status-badge">In Progress</span>
+                <span class="badge badge-open" id="pilot-id-badge">PL-901</span>
+              </div>
+              <h1 class="page-title" id="pilot-challenge-title" style="margin-top: 4px; font-size: 22px;">Loading Pilot...</h1>
+              <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+                Awarded Startup: <strong id="pilot-startup-name" style="color: var(--navy-primary);">--</strong> &bull; 
+                Department: <span id="pilot-department">--</span> &bull;
+                Field Sandbox Area: <span id="pilot-area">District Hospital OPD</span>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <span class="stat-label">Sanctioned Contract Value</span>
+              <div id="pilot-contract-value" style="font-size: 24px; font-weight: 800; color: var(--navy-primary);">₹0</div>
+              <div id="pilot-duration" style="font-size: 12px; color: var(--text-muted);">Duration: 6 Months</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Milestone Timeline Track -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <h3 class="card-title">Pilot Execution Visual Timeline</h3>
+          <span style="font-size: 12px; color: var(--text-muted);">Sequential Milestone Progression</span>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-5" style="text-align: center;">
+            <div style="padding: 12px; background: #DCFCE7; border: 1px solid #86EFAC; border-radius: var(--border-radius);">
+              <span style="font-size: 11px; font-weight: 700; color: #15803D; text-transform: uppercase;">1. Award & Setup</span>
+              <div style="font-size: 13px; font-weight: 700; color: #15803D; margin-top: 4px;">✓ Complete</div>
+              <span style="font-size: 11px; color: #15803D;">M1: 20% Released</span>
+            </div>
+            <div style="padding: 12px; background: #FEF3C7; border: 1px solid #FCD34D; border-radius: var(--border-radius);">
+              <span style="font-size: 11px; font-weight: 700; color: #B45309; text-transform: uppercase;">2. Field Testing</span>
+              <div style="font-size: 13px; font-weight: 700; color: #B45309; margin-top: 4px;">● Under Review</div>
+              <span style="font-size: 11px; color: #B45309;">M2: 30% Due</span>
+            </div>
+            <div style="padding: 12px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+              <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">3. Stress Audit</span>
+              <div style="font-size: 13px; font-weight: 700; color: var(--text-muted); margin-top: 4px;">○ In Progress</div>
+              <span style="font-size: 11px; color: var(--text-muted);">M3: 30%</span>
+            </div>
+            <div style="padding: 12px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+              <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">4. Final Report</span>
+              <div style="font-size: 13px; font-weight: 700; color: var(--text-muted); margin-top: 4px;">○ Not Started</div>
+              <span style="font-size: 11px; color: var(--text-muted);">M4: 20%</span>
+            </div>
+            <div style="padding: 12px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+              <span style="font-size: 11px; font-weight: 700; color: var(--navy-primary); text-transform: uppercase;">5. Scale Review</span>
+              <div style="font-size: 13px; font-weight: 700; color: var(--navy-primary); margin-top: 4px;">Stage 10</div>
+              <span style="font-size: 11px; color: var(--text-muted);">Decisional Decree</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Status / Milestone Disbursement Tracking -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <h3 class="card-title">Payment Status / Milestone Disbursement Tracking</h3>
+          <span style="font-size: 12px; color: var(--text-muted);">Tranche release tracking linked to verified milestone deliverables</span>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-3" style="margin-bottom: 16px;">
+            <div>
+              <span class="stat-label">Total Contract Value</span>
+              <div id="summary-contract" style="font-size: 20px; font-weight: 700; color: var(--navy-primary);">₹0</div>
+            </div>
+            <div>
+              <span class="stat-label">Disbursed Tranches</span>
+              <div id="summary-paid" style="font-size: 20px; font-weight: 700; color: var(--green-primary);">₹0</div>
+            </div>
+            <div>
+              <span class="stat-label">Pending Milestone Tranches</span>
+              <div id="summary-pending" style="font-size: 20px; font-weight: 700; color: var(--saffron-dark);">₹0</div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 4px;">
+              <span>Disbursement Progress</span>
+              <span id="summary-progress-percent">0% Released</span>
+            </div>
+            <div class="progress-bar-container">
+              <div id="summary-progress-fill" class="progress-bar-fill green" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1. Milestone Timeline & Verification -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <h3 class="card-title">1. Contract Milestones & Deliverable Verification</h3>
+          <span style="font-size: 12px; color: var(--text-muted);">Review submitted evidence and authorize milestone payment</span>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Milestone & Deliverable Scope</th>
+                  <th style="width: 90px;">Weight (%)</th>
+                  <th style="width: 120px;">Tranche (₹)</th>
+                  <th style="width: 120px;">Status</th>
+                  <th>Submitted Deliverables & Proof</th>
+                  <th style="width: 220px;">Government Officer Action</th>
+                </tr>
+              </thead>
+              <tbody id="milestones-tbody">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. KPI Performance Audit -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <h3 class="card-title">2. KPI Performance Audit & Target Verification</h3>
+          <span style="font-size: 12px; color: var(--text-muted);">Edit actual metrics to re-evaluate variance against baseline targets.</span>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>KPI / Performance Metric Name</th>
+                  <th>Baseline</th>
+                  <th>Target</th>
+                  <th>Actual Achieved Metric</th>
+                  <th>Improvement % (Auto)</th>
+                  <th>Audit Status</th>
+                </tr>
+              </thead>
+              <tbody id="kpis-tbody">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: var(--text-muted);">Values are evaluated via pure rules engine based on directional criteria.</span>
+          <button id="btn-save-kpis" class="btn btn-primary btn-sm">💾 Update KPI Performance Audit</button>
+        </div>
+      </div>
+
+      <!-- 3. Independent Validation Module -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <h3 class="card-title">3. Independent Third-Party Technical Validation</h3>
+          <span class="badge badge-open" id="validation-status-pill">Pending</span>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-3" style="margin-bottom: 16px;">
+            <div>
+              <label class="form-label">Validation Agency</label>
+              <input type="text" id="val-agency" class="form-control" value="National Health Authority (NHA) Tech Evaluation Cell">
+            </div>
+            <div>
+              <label class="form-label">Technical Reviewer / Auditor</label>
+              <input type="text" id="val-reviewer" class="form-control" value="Dr. S. K. Verma, Chief Evaluation Officer">
+            </div>
+            <div>
+              <label class="form-label">Clearance Reference ID</label>
+              <input type="text" id="val-clearance-id" class="form-control" value="NHA-TEC-2026-PL901">
+            </div>
+          </div>
+
+          <div class="grid grid-2" style="margin-bottom: 16px;">
+            <div>
+              <label class="form-label">Validation Clearance Status <span class="required">*</span></label>
+              <select id="val-status-select" class="form-control">
+                <option value="Pending">Pending Audit</option>
+                <option value="Approved">Approved (Full Technical Clearance)</option>
+                <option value="Conditional">Conditional (Remediations Required)</option>
+                <option value="Rejected">Rejected (Non-Compliant)</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Validation Evidence Document</label>
+              <div class="doc-badge" style="margin-top: 4px;">
+                📄 NHA_Field_Audit_Validation_Report_v2.pdf
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Auditor Findings & Technical Remarks</label>
+            <textarea id="val-remarks" class="form-control" rows="2" placeholder="Documented findings regarding solution reliability, data security, and throughput in field conditions...">Field testing verified 68% OPD queue time reduction across 4 hospital counters with zero HIS API latency errors.</textarea>
+          </div>
+        </div>
+        <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center;">
+          <button id="btn-save-validation" class="btn btn-secondary">💾 Save Validation Clearance</button>
+          <a id="btn-proceed-scale" href="scale-decision.html?id=PL-901" class="btn btn-saffron">
+            Proceed to Evidence-based Scale Review (Step 10) &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Contract Clauses & Governance -->
+      <div class="card" style="margin-bottom: 30px;">
+        <div class="card-header">
+          <h3 class="card-title">4. Contract Governance & Legal Safeguards</h3>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-2">
+            <div class="callout">
+              <strong style="color: var(--navy-primary);">Data Ownership & Sovereignty</strong>
+              <p id="clause-data" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;"></p>
+            </div>
+            <div class="callout">
+              <strong style="color: var(--navy-primary);">Intellectual Property (IP) Rights</strong>
+              <p id="clause-ip" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;"></p>
+            </div>
+            <div class="callout">
+              <strong style="color: var(--navy-primary);">Security Requirements & STQC</strong>
+              <p id="clause-security" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;"></p>
+            </div>
+            <div class="callout">
+              <strong style="color: var(--navy-primary);">Data Retention & State Data Center (SDC) Policy</strong>
+              <p id="clause-retention" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/rules.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/gov-pilot.js"></script>
+</body>
+</html>

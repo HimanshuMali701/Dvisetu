@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DviSetu | Procurement Audit Trail</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Application Header -->
+  <header id="app-header" class="app-header"></header>
+
+  <div class="app-container">
+    <!-- Dynamic Sidebar -->
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Procurement Transparency Audit Trail</h1>
+          <p class="page-subtitle">Immutable chronological log of statutory eligibility checks, evaluation submissions, milestone disbursements, and scale authorizations.</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button type="button" id="btn-export-audit" class="btn btn-secondary btn-sm">🖨️ Export Audit Report</button>
+        </div>
+      </div>
+
+      <!-- Filter Toolbar -->
+      <div class="filter-toolbar">
+        <div class="search-input-wrapper">
+          <span class="search-icon-badge">🔍</span>
+          <input type="text" id="audit-search-input" class="form-control" placeholder="Search by action, entity ID (e.g. PL-901), or keyword...">
+        </div>
+
+        <select id="audit-role-filter" class="form-control" style="width: 190px;">
+          <option value="">All User Roles</option>
+          <option value="gov">Government Officer</option>
+          <option value="expert">Expert Evaluator</option>
+          <option value="startup">Startup Founder</option>
+        </select>
+
+        <select id="audit-entity-filter" class="form-control" style="width: 190px;">
+          <option value="">All Entity Types</option>
+          <option value="Challenge">Challenges</option>
+          <option value="Application">Applications</option>
+          <option value="Evaluation">Evaluations</option>
+          <option value="Pilot">Pilots</option>
+          <option value="Validation">Validations</option>
+          <option value="Startup">Startups</option>
+        </select>
+      </div>
+
+      <!-- Audit Stats Card -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+          <h3 class="card-title">Chronological Procurement Actions Ledger</h3>
+          <span id="audit-count-badge" class="badge badge-open">0 Actions Logged</span>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-container">
+            <table class="table audit-table">
+              <thead>
+                <tr>
+                  <th style="width: 170px;">Date & Timestamp</th>
+                  <th style="width: 220px;">Procurement Action</th>
+                  <th style="width: 150px;">Acting Persona</th>
+                  <th style="width: 120px;">Entity Ref</th>
+                  <th style="width: 120px;">Status</th>
+                  <th>Audit Notes & Traceability Details</th>
+                </tr>
+              </thead>
+              <tbody id="audit-tbody">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/rules.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/audit-trail.js"></script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DviSetu | Platform Overview &amp; 10-Stage Lifecycle Tour</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body style="background-color: var(--bg-main); color: var(--text-main);">
+
+  <!-- Government Enterprise Top Strip -->
+  <div class="gov-top-bar">
+    <div>
+      <span>Government of Maharashtra &bull; Maharashtra State Innovation Society (MSInS)</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <span>Smart India Hackathon 2026 &bull; Problem Statement SIH26136</span>
+      <a href="./index.html" style="color: #FEF3C7; text-decoration: underline; font-weight: 700; font-size: 11px;">🔐 Sign In to Portal</a>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="full-page-container" style="padding-top: 24px;">
+
+    <!-- Administrative Header Banner -->
+    <header style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 32px; margin-bottom: 28px; box-shadow: var(--box-shadow); text-align: center;">
+      <div style="display: flex; justify-content: center; align-items: center; gap: 14px; margin-bottom: 12px;">
+        <svg width="44" height="44" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="DviSetu Logo">
+          <rect width="40" height="40" rx="8" fill="#0B2545"/>
+          <!-- Government Pillar (Left) -->
+          <path d="M9 28V15C9 13.9 9.9 13 11 13H13C14.1 13 15 13.9 15 15V28H9Z" fill="#FFFFFF"/>
+          <!-- Startup Innovation Pillar (Right) -->
+          <path d="M25 28V15C25 13.9 25.9 13 27 13H29C30.1 13 31 13.9 31 15V28H25Z" fill="#FF9933"/>
+          <!-- The Connecting Bridge Span / Deck ("Setu") -->
+          <path d="M7 21C13 17 27 17 33 21" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M6 24H34" stroke="#FF9933" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Central Keystone Node -->
+          <circle cx="20" cy="18" r="2.5" fill="#138808"/>
+        </svg>
+        <div style="text-align: left;">
+          <span style="font-size: 28px; font-weight: 800; color: var(--navy-primary); letter-spacing: 0.5px; display: block; line-height: 1.1;">
+            DviSetu
+          </span>
+          <span style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px;">
+            Government&ndash;Startup Innovation Procurement Platform
+          </span>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 14px;">
+        <span class="badge badge-open" style="background-color: #FEF3C7; color: #B45309; border: 1px solid #FCD34D; padding: 4px 12px; font-size: 11px;">
+          SIH26136 Demonstration Platform &bull; Department of Skills, Employment, Entrepreneurship & Innovation
+        </span>
+      </div>
+
+      <h1 style="font-size: 22px; font-weight: 700; color: var(--navy-primary); max-width: 820px; margin: 0 auto 12px auto; line-height: 1.35;">
+        A Structured Digital Pathway to Identify, Pilot, Procure, and Scale Innovative Solutions from Eligible Startups
+      </h1>
+
+      <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6; max-width: 800px; margin: 0 auto 20px auto;">
+        Enabling public departments to move beyond lowest-bid (L1) tender friction through automated capability matching, statutory eligibility screening, milestone-linked payments, KPI performance auditing, and evidence-based scale decrees.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <a href="./index.html" class="btn btn-primary" style="font-size: 13px; padding: 10px 20px; border-left: 4px solid var(--saffron-primary);">
+          🔐 Portal Sign In
+        </a>
+        <a href="./gov/dashboard.html" class="btn btn-primary" style="font-size: 13px; padding: 10px 20px;">
+          🏛️ Enter Government Dashboard
+        </a>
+        <a href="./gov/startups.html" class="btn btn-secondary" style="font-size: 13px; padding: 10px 20px;">
+          🔍 Startup Discovery Repository
+        </a>
+        <a href="./gov/pilot.html?id=PL-901" class="btn btn-saffron" style="font-size: 13px; padding: 10px 20px;">
+          🚀 Active Pilot Oversight (PL-901) &rarr;
+        </a>
+        <button id="btn-play-tour" class="btn btn-outline" style="font-size: 13px; padding: 10px 20px;">
+          ▶️ Play 60-Sec Lifecycle Tour
+        </button>
+      </div>
+    </header>
+
+
+    <!-- SECTION 2: OPERATIONAL PERSONA ENTRY CARDS -->
+    <section style="margin-bottom: 32px;">
+      <div style="margin-bottom: 16px; text-align: center;">
+        <h2 style="font-size: 18px; font-weight: 700; color: var(--navy-primary);">
+          Select Operational Role Persona
+        </h2>
+        <p style="font-size: 13px; color: var(--text-muted);">
+          Each role provides customized administrative views and controls across the procurement lifecycle.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Gov Officer -->
+        <div class="card" style="border-top: 4px solid var(--saffron-dark);">
+          <div class="card-body">
+            <div style="font-size: 28px; margin-bottom: 8px;">🏛️</div>
+            <h3 style="font-size: 17px; color: var(--navy-primary); margin-bottom: 4px;">Government Officer</h3>
+            <span class="badge badge-open" style="font-size: 11px; margin-bottom: 10px;">Departmental Authority</span>
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.4;">
+              Define innovation challenges with KPIs, review capability matches, verify statutory checklists, oversee milestone tranches, and authorize state-wide scale decrees.
+            </p>
+            <a href="./gov/dashboard.html" class="btn btn-saffron btn-sm" style="width: 100%;">
+              Enter as Government Officer &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Startup Founder -->
+        <div class="card" style="border-top: 4px solid var(--navy-light);">
+          <div class="card-body">
+            <div style="font-size: 28px; margin-bottom: 8px;">🚀</div>
+            <h3 style="font-size: 17px; color: var(--navy-primary); margin-bottom: 4px;">Startup Founder</h3>
+            <span class="badge badge-pilot" style="font-size: 11px; margin-bottom: 10px;">DPIIT Innovator</span>
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.4;">
+              Discover departmental challenges, test live eligibility compliance, submit technical proposals, upload milestone test evidence, and track milestone disbursements.
+            </p>
+            <a href="./startup/dashboard.html" class="btn btn-primary btn-sm" style="width: 100%;">
+              Enter as Startup Founder &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Expert Evaluator -->
+        <div class="card" style="border-top: 4px solid var(--green-primary);">
+          <div class="card-body">
+            <div style="font-size: 28px; margin-bottom: 8px;">⚖️</div>
+            <h3 style="font-size: 17px; color: var(--navy-primary); margin-bottom: 4px;">Expert / Evaluator</h3>
+            <span class="badge badge-scaled" style="font-size: 11px; margin-bottom: 10px;">Technical Specialist</span>
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.4;">
+              Score proposals across 6 multi-criteria dimensions with configurable weightings, document qualitative technical notes, and log verifiable evaluation scores.
+            </p>
+            <a href="./expert/evaluate.html" class="btn btn-green btn-sm" style="width: 100%;">
+              Enter as Expert Evaluator &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 3: PROBLEM VS SOLUTION ARCHITECTURE -->
+    <section class="card" style="margin-bottom: 32px;">
+      <div class="card-header">
+        <h2 style="font-size: 16px; font-weight: 700; color: var(--navy-primary);">
+          Traditional Public Procurement Bottlenecks vs DviSetu Solution Architecture
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="grid grid-2">
+          <!-- Traditional Bottlenecks -->
+          <div style="background: #FEF2F2; border-left: 4px solid var(--red-primary); padding: 18px; border-radius: 4px;">
+            <h3 style="font-size: 14px; color: #991B1B; font-weight: 700; margin-bottom: 10px;">
+              🔴 Traditional Procurement Bottlenecks
+            </h3>
+            <ul style="list-style-type: none; font-size: 12px; color: #7F1D1D; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>1. Lowest-Cost (L1) Tender Bias:</strong> Focus on cheapest cost and multi-year turnover history disqualifies early-stage startups with superior technology.</li>
+              <li><strong>2. Working Capital Liquidity Traps:</strong> Disconnected milestone sign-offs and slow manual bureaucracy trap startup cash flow during pilot execution.</li>
+              <li><strong>3. Absence of Empirical Scale Pathways:</strong> Successful pilots frequently stall without standardized frameworks to measure KPIs and authorize state rollouts.</li>
+            </ul>
+          </div>
+
+          <!-- DviSetu Solution -->
+          <div style="background: #F0FDF4; border-left: 4px solid var(--green-primary); padding: 18px; border-radius: 4px;">
+            <h3 style="font-size: 14px; color: #166534; font-weight: 700; margin-bottom: 10px;">
+              🟢 The DviSetu Structured Solution
+            </h3>
+            <ul style="list-style-type: none; font-size: 12px; color: #14532D; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>1. Capability Matching & Automated Screening:</strong> Deterministic tag overlap matching combined with automated GSTIN, DPIIT, and certification verification.</li>
+              <li><strong>2. Milestone Disbursement Tracking:</strong> 20/30/30/20 tranche schedule digitally authorized upon verified technical deliverable submissions.</li>
+              <li><strong>3. Evidence-Based Scale Review Engine:</strong> Pilot baseline vs. actual KPI audit with third-party technical clearance for authorized state-wide expansion.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 4: INTERACTIVE 10-STAGE PROCUREMENT LIFECYCLE TOUR -->
+    <section class="card" style="margin-bottom: 32px;">
+      <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h2 style="font-size: 16px; font-weight: 700; color: var(--navy-primary);">
+            End-to-End 10-Stage Procurement Lifecycle
+          </h2>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+            Click any stage below to inspect the corresponding workflow screen, data inputs, and SIH26136 requirement satisfied.
+          </p>
+        </div>
+
+        <div style="text-align: right;">
+          <span id="tour-status-text" style="font-size: 12px; font-weight: 600; color: var(--navy-primary);">
+            Tour Paused (Click step or play tour)
+          </span>
+          <div class="tour-timer-bar-container" style="width: 180px; background-color: #E2E8F0; margin-top: 4px;">
+            <div id="tour-progress-bar-fill" class="tour-timer-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <!-- Stepper Buttons (10 Steps) -->
+        <div id="interactive-stepper-buttons" class="stepper-steps" style="margin-bottom: 20px;">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Preview Panel -->
+        <div style="background-color: #F8FAFC; border: 1px solid var(--border-color); border-radius: 6px; padding: 20px;">
+          <div class="grid grid-2-1">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <span id="preview-badge" class="badge badge-pilot">Gov Officer Action</span>
+                <h3 id="preview-title" style="font-size: 16px; font-weight: 700; color: var(--navy-primary);">
+                  1. Structured Challenge Creation
+                </h3>
+              </div>
+
+              <p id="preview-desc" style="font-size: 13px; color: var(--text-main); margin-bottom: 12px; line-height: 1.5;">
+                Government departments post structured problem statements with budget ceilings, duration, and target success metrics.
+              </p>
+
+              <div style="font-size: 12px; background: #EFF6FF; border-left: 3px solid #3B82F6; padding: 8px 12px; border-radius: 4px; margin-bottom: 16px;">
+                <strong style="color: #1E40AF;">Satisfied PS Requirement:</strong>
+                <div id="preview-ps-req" style="color: #1E3A8A; margin-top: 2px;">SIH PS Requirement #1</div>
+              </div>
+
+              <a id="preview-screen-link" href="./gov/create-challenge.html" class="btn btn-primary btn-sm">
+                Open Full Interactive Screen &rarr;
+              </a>
+            </div>
+
+            <!-- CSS Mock UI Snippet Preview -->
+            <div>
+              <div style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 0.5px;">
+                Stage Screen UI Snippet
+              </div>
+              <div id="preview-mock-container">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 5: LIVE METRICS SUMMARY STRIP -->
+    <section class="card" style="margin-bottom: 32px;">
+      <div class="card-header">
+        <h2 style="font-size: 16px; font-weight: 700; color: var(--navy-primary);">
+          Platform Operational Registry Snapshot (Live Local Data Store)
+        </h2>
+        <a href="./gov/audit-trail.html" class="btn btn-secondary btn-sm">📜 View Audit Trail</a>
+      </div>
+      <div class="card-body">
+        <div class="grid grid-6">
+          <div class="stat-card" style="padding: 14px; text-align: center;">
+            <div class="stat-label" style="font-size: 11px;">Challenges</div>
+            <div class="stat-value" id="stat-active-challenges" style="font-size: 20px;">0</div>
+            <span class="stat-subtext" style="font-size: 10px;">Published</span>
+          </div>
+          <div class="stat-card saffron" style="padding: 14px; text-align: center;">
+            <div class="stat-label" style="font-size: 11px;">Applications</div>
+            <div class="stat-value" id="stat-total-apps" style="font-size: 20px;">0</div>
+            <span class="stat-subtext" style="font-size: 10px;">Submitted</span>
+          </div>
+          <div class="stat-card" style="padding: 14px; text-align: center;">
+            <div class="stat-label" style="font-size: 11px;">Startups</div>
+            <div class="stat-value" id="stat-matched-startups" style="font-size: 20px;">0</div>
+            <span class="stat-subtext" style="font-size: 10px;">In Registry</span>
+          </div>
+          <div class="stat-card green" style="padding: 14px; text-align: center;">
+            <div class="stat-label" style="font-size: 11px;">Active Pilots</div>
+            <div class="stat-value" id="stat-running-pilots" style="font-size: 20px;">0</div>
+            <span class="stat-subtext" style="font-size: 10px;">Field Trials</span>
+          </div>
+          <div class="stat-card green" style="padding: 14px; text-align: center;">
+            <div class="stat-label" style="font-size: 11px;">Disbursed</div>
+            <div class="stat-value" id="stat-disbursed-funds" style="font-size: 15px; margin-top:8px;">₹0</div>
+            <span class="stat-subtext" style="font-size: 10px;">Milestone Paid</span>
+          </div>
+          <div class="stat-card" style="padding: 14px; text-align: center;">
+            <div class="stat-label" style="font-size: 11px;">Scale Decrees</div>
+            <div class="stat-value" id="stat-scaled-solutions" style="font-size: 20px;">0</div>
+            <span class="stat-subtext" style="font-size: 10px;">Authorized</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 6: SIH26136 PS REQUIREMENT MATRIX -->
+    <section class="card" style="margin-bottom: 32px;">
+      <div class="card-header">
+        <h2 style="font-size: 16px; font-weight: 700; color: var(--navy-primary);">
+          Official SIH26136 Problem Statement Requirements Verification Matrix
+        </h2>
+      </div>
+      <div class="card-body" style="padding: 0;">
+        <div class="table-container">
+          <table class="table" style="font-size: 12px;">
+            <thead>
+              <tr>
+                <th style="width: 180px;">Lifecycle Stage</th>
+                <th>Platform Implementation Feature</th>
+                <th style="width: 140px;">Compliance</th>
+                <th style="width: 160px;">Interactive Shortcut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Challenge Identification</strong></td>
+                <td>Multi-step wizard for problem statement, baseline, KPIs, cybersecurity, and budget boundaries.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./gov/create-challenge.html" class="btn btn-outline btn-sm">Create Challenge</a></td>
+              </tr>
+              <tr>
+                <td><strong>2. Startup Discovery</strong></td>
+                <td>Startup repository searchable by capability tags, domain sector, stage, and certifications.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./gov/startups.html" class="btn btn-outline btn-sm">Startup Discovery</a></td>
+              </tr>
+              <tr>
+                <td><strong>3. Capability Matching</strong></td>
+                <td>Deterministic pure rule engine calculating capability tag overlap % and sector alignment.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./gov/challenge-detail.html?id=CH-101" class="btn btn-outline btn-sm">Inspect Matches</a></td>
+              </tr>
+              <tr>
+                <td><strong>4. Eligibility Screening</strong></td>
+                <td>Automated checklist evaluating GSTIN, DPIIT certificate, quality certs, turnover, and conflict.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./startup/apply.html?id=CH-101" class="btn btn-outline btn-sm">Auto Eligibility</a></td>
+              </tr>
+              <tr>
+                <td><strong>5. Expert Evaluation</strong></td>
+                <td>Multi-criteria workspace with configurable weights across 6 dimensions & transparent score log.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./expert/evaluate.html" class="btn btn-outline btn-sm">Expert Workspace</a></td>
+              </tr>
+              <tr>
+                <td><strong>6. Pilot & Milestone Setup</strong></td>
+                <td>Contract terms, pilot sandbox parameters, and 4-phase milestone deliverables.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./gov/pilot.html?id=PL-901" class="btn btn-outline btn-sm">Pilot Oversight</a></td>
+              </tr>
+              <tr>
+                <td><strong>7. Payment Tracking</strong></td>
+                <td>Milestone disbursement release trigger linked to verified deliverable evidence.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./gov/pilot.html?id=PL-901" class="btn btn-outline btn-sm">Disburse Tranche</a></td>
+              </tr>
+              <tr>
+                <td><strong>8. Performance Measurement</strong></td>
+                <td>Real-time baseline vs. target vs. actual variance analysis with pass/fail evaluation.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./gov/pilot.html?id=PL-901" class="btn btn-outline btn-sm">Audit KPIs</a></td>
+              </tr>
+              <tr>
+                <td><strong>9. Independent Validation</strong></td>
+                <td>Dedicated third-party technical clearance module with agency, reviewer, and remarks.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./gov/pilot.html?id=PL-901" class="btn btn-outline btn-sm">Review Validation</a></td>
+              </tr>
+              <tr>
+                <td><strong>10. Scale-up Decision</strong></td>
+                <td>Evidence-based scale decree generator for district, state-wide, or pan-India rollout.</td>
+                <td><span class="badge badge-scaled">✓ Fully Covered</span></td>
+                <td><a href="./gov/scale-decision.html?id=PL-901" class="btn btn-outline btn-sm">Authorize Scale</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Official Portal Footer -->
+  <footer class="portal-disclaimer-footer">
+    <div>
+      <strong>DviSetu</strong> &bull; Government&ndash;Startup Innovation Procurement Platform &bull; 
+      Department of Skills, Employment, Entrepreneurship & Innovation.
+    </div>
+    <div style="font-size: 11px; color: #64748B; margin-top: 4px;">
+      Smart India Hackathon 2026 (SIH26136) Demonstration Platform &bull; Prototype for Presentation & Evaluation Purposes Only.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./assets/js/rules.js"></script>
+  <script src="./assets/js/data.js"></script>
+  <script src="./assets/js/store.js"></script>
+  <script src="./assets/js/index.js"></script>
+</body>
+</html>

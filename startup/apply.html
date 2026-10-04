@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DviSetu | Submit Innovation Proposal</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Header -->
+  <header id="app-header" class="app-header"></header>
+
+  <div class="app-container">
+    <!-- Dynamic Sidebar -->
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Submit Innovation Procurement Proposal</h1>
+          <p class="page-subtitle">Submit competitive technical proposal with automated statutory checklist screening and milestone schedule.</p>
+        </div>
+        <div>
+          <a href="browse-challenges.html" class="btn btn-secondary btn-sm">&larr; Back to Challenges</a>
+        </div>
+      </div>
+
+      <!-- Challenge Header Card -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <div>
+            <span class="badge badge-open" id="apply-challenge-id">CH-101</span>
+            <h2 style="font-size: 18px; color: var(--navy-primary); margin-top: 4px;" id="apply-challenge-title">Loading Challenge...</h2>
+          </div>
+          <div id="apply-challenge-budget" style="font-size: 18px; font-weight: 700; color: var(--navy-primary);">₹0</div>
+        </div>
+      </div>
+
+      <!-- Live Auto Eligibility Verification Banner -->
+      <div id="apply-eligibility-banner" class="callout success" style="margin-bottom: 20px;">
+        <h3 style="font-size: 14px; font-weight: 700; color: var(--navy-primary); margin-bottom: 8px;">
+          ⚡ Live Statutory Eligibility Screening Audit
+        </h3>
+        <div id="apply-eligibility-checklist">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- Application Form -->
+      <form id="apply-form">
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-header">
+            <h3 class="card-title">1. Technical Proposal & Architecture</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label class="form-label">Solution Overview & Problem Fit <span class="required">*</span></label>
+              <textarea id="input-solution-overview" class="form-control" rows="3" placeholder="Executive summary of how your startup's core solution solves this public challenge..." required>MedQ Intelligent Queue Engine integrates directly with Hospital Information Systems (HIS) using HL7/FHIR API standards to balance patient wait times across OPD counters with automated WhatsApp token notifications.</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Technical Architecture & Security Approach <span class="required">*</span></label>
+              <textarea id="input-tech-approach" class="form-control" rows="3" placeholder="Describe server architecture, data privacy safeguards, STQC compliance, and offline fallback..." required>Zero-trust cloud architecture hosted in Mumbai AWS GovCloud / SDC. TLS 1.3 encryption in transit, AES-256 at rest, localized edge caching for counter kiosks in case of network drops.</textarea>
+            </div>
+
+            <div class="grid grid-2">
+              <div class="form-group">
+                <label class="form-label">Implementation & Field Deployment Plan (Milestone Schedule) <span class="required">*</span></label>
+                <textarea id="input-implementation-plan" class="form-control" rows="2" placeholder="Describe pilot phases: hardware setup, pilot counters, testing..." required>Phase 1 (Month 1-2): 15 Kiosk deployment and HIS integration. Phase 2 (Month 3-4): Live triage deployment. Phase 3 (Month 5-6): Stress testing & final evaluation.</textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Relevant Deployments & Operational Track Record <span class="required">*</span></label>
+                <textarea id="input-relevant-experience" class="form-control" rows="2" placeholder="Past deployments in government or healthcare facilities..." required>Successfully installed and operational across 12 private hospital networks and 2 municipal health clinics in Karnataka.</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-header">
+            <h3 class="card-title">2. Commercial Proposal & Statutory Undertaking</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid grid-2">
+              <div class="form-group">
+                <label class="form-label">Proposed Pilot Commercial Bid (₹) <span class="required">*</span></label>
+                <input type="number" id="input-proposed-budget" class="form-control" placeholder="e.g. 2200000" value="2200000" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Proposed Pilot Duration (Months) <span class="required">*</span></label>
+                <input type="number" id="input-proposed-months" class="form-control" value="6" required>
+              </div>
+            </div>
+
+            <div class="checkbox-group" style="margin-top: 10px;">
+              <label class="checkbox-label" style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="chk-declaration-agree" checked required>
+                <span><strong>Legal Undertaking & Declarations:</strong> We certify that all submitted technical credentials, GSTIN returns, DPIIT certificates, and absence of conflict of interest declarations are legally authentic and auditable by the State Government.</span>
+              </label>
+            </div>
+          </div>
+          <div class="card-footer" style="display: flex; justify-content: space-between;">
+            <a href="browse-challenges.html" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-saffron" style="font-weight: 700;">Submit Official Proposal &rarr;</button>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/rules.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/apply.js"></script>
+</body>
+</html>

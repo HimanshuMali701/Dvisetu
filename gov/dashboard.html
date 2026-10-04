@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DviSetu | Government Dashboard</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Application Header -->
+  <header id="app-header" class="app-header"></header>
+
+  <div class="app-container">
+    <!-- Dynamic Sidebar -->
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <!-- Main Body -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Government Procurement Dashboard</h1>
+          <p class="page-subtitle">Overview of innovation challenges, startup matchings, active pilots, and scale decisions.</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <a href="startups.html" class="btn btn-secondary">🔍 Startup Discovery</a>
+          <a href="create-challenge.html" class="btn btn-saffron">+ Create New Challenge</a>
+        </div>
+      </div>
+
+      <!-- 8 Operational Stat Cards (Grid of 4x2) -->
+      <div class="grid grid-4" style="margin-bottom: 16px;">
+        <div class="stat-card">
+          <div class="stat-label">Active Challenges</div>
+          <div class="stat-value" id="stat-active-challenges">0</div>
+          <div class="stat-subtext">Open for Startup Bids</div>
+        </div>
+        <div class="stat-card saffron">
+          <div class="stat-label">Applications Received</div>
+          <div class="stat-value" id="stat-total-applications">0</div>
+          <div class="stat-subtext">Across All Challenges</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pending Evaluations</div>
+          <div class="stat-value" id="stat-pending-evaluations">0</div>
+          <div class="stat-subtext">Expert Review Queue</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-label">Active Pilots</div>
+          <div class="stat-value" id="stat-pilots-running">0</div>
+          <div class="stat-subtext">Contracted Field Trials</div>
+        </div>
+      </div>
+
+      <div class="grid grid-4" style="margin-bottom: 24px;">
+        <div class="stat-card">
+          <div class="stat-label">Milestones Due (30d)</div>
+          <div class="stat-value" id="stat-milestones-due">0</div>
+          <div class="stat-subtext">Deliverables Pending</div>
+        </div>
+        <div class="stat-card saffron">
+          <div class="stat-label">Pilots Requiring Attention</div>
+          <div class="stat-value" id="stat-pilots-attention">0</div>
+          <div class="stat-subtext">Verification Required</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-label">Completed Pilots</div>
+          <div class="stat-value" id="stat-pilots-completed">0</div>
+          <div class="stat-subtext">Ready for Scale Audit</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Scale-up Decisions</div>
+          <div class="stat-value" id="stat-solutions-scaled">0</div>
+          <div class="stat-subtext">Authorized Rollouts</div>
+        </div>
+      </div>
+
+      <!-- Operational Lifecycle Funnel Overview -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+          <h3 class="card-title">Procurement Pipeline Operational Funnel</h3>
+          <span style="font-size: 12px; color: var(--text-muted);">End-to-End Pipeline Health</span>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-5" style="text-align: center;">
+            <div style="padding: 10px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+              <span class="stat-label">1. Challenges</span>
+              <div id="funnel-challenges" style="font-size: 20px; font-weight: 700; color: var(--navy-primary);">0</div>
+            </div>
+            <div style="padding: 10px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+              <span class="stat-label">2. Applications</span>
+              <div id="funnel-apps" style="font-size: 20px; font-weight: 700; color: var(--saffron-dark);">0</div>
+            </div>
+            <div style="padding: 10px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+              <span class="stat-label">3. Evaluated</span>
+              <div id="funnel-evals" style="font-size: 20px; font-weight: 700; color: var(--navy-light);">0</div>
+            </div>
+            <div style="padding: 10px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+              <span class="stat-label">4. Active Pilots</span>
+              <div id="funnel-pilots" style="font-size: 20px; font-weight: 700; color: var(--green-primary);">0</div>
+            </div>
+            <div style="padding: 10px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: var(--border-radius);">
+              <span class="stat-label">5. Scaled Up</span>
+              <div id="funnel-scaled" style="font-size: 20px; font-weight: 700; color: var(--navy-primary);">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Dashboard Grid -->
+      <div class="grid grid-2-1">
+        <!-- Left: Active Challenges List -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Innovation Challenges Pipeline</h3>
+            <a href="challenges.html" class="btn btn-outline btn-sm">View All &rarr;</a>
+          </div>
+          <div style="padding: 12px 16px; border-bottom: 1px solid var(--border-color); background: #F8FAFC; display: flex; gap: 10px;">
+            <input type="text" id="dash-search-input" class="form-control" placeholder="Search challenges by title or department..." style="flex: 1; font-size: 13px;">
+            <select id="dash-sector-filter" class="form-control" style="width: 200px; font-size: 13px;">
+              <option value="">All Sectors</option>
+              <option value="Healthcare & HealthTech">Healthcare</option>
+              <option value="Urban Infrastructure & Smart City">Urban Infra</option>
+              <option value="Waste Management & Cleantech">Cleantech</option>
+              <option value="GovTech & Artificial Intelligence">GovTech</option>
+            </select>
+          </div>
+          <div class="card-body" style="padding: 0;">
+            <div class="table-container">
+              <table class="table" id="dashboard-challenges-table">
+                <thead>
+                  <tr>
+                    <th>Challenge ID</th>
+                    <th>Problem Title</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="challenges-tbody">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Pilot Health Panel & Recent Decisions -->
+        <div>
+          <!-- Pilot Health Panel (CSS Bars) -->
+          <div class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+              <h3 class="card-title">Active Pilot Health Monitor</h3>
+            </div>
+            <div class="card-body">
+              <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 13px;">
+                  <span>MedQ OPD Optimization (PL-901)</span>
+                  <span style="color: var(--green-dark);">On Track (75%)</span>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill green" style="width: 75%;"></div>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                  Milestone 1 Complete | Payment 1 Released
+                </div>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 13px;">
+                  <span>AquaTech Water Leakage (PL-900)</span>
+                  <span style="color: var(--navy-primary);">Completed / Scaled (100%)</span>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 100%;"></div>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                  State-wide Scale Approved
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Scale Decisions -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Recent Scale-up Decisions</h3>
+            </div>
+            <div class="card-body" style="padding: 0;">
+              <div class="table-container">
+                <table class="table" style="font-size: 12px;">
+                  <thead>
+                    <tr>
+                      <th>Challenge</th>
+                      <th>Decision</th>
+                      <th>Scope</th>
+                    </tr>
+                  </thead>
+                  <tbody id="scale-decisions-tbody">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/rules.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/gov-dashboard.js"></script>
+</body>
+</html>

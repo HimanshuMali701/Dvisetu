@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DviSetu | Evidence-Based Scale Review</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Application Header -->
+  <header id="app-header" class="app-header"></header>
+
+  <div class="app-container">
+    <!-- Dynamic Sidebar -->
+    <aside id="app-sidebar" class="app-sidebar"></aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Stepper Step 10 -->
+      <div id="lifecycle-stepper-container"></div>
+
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Stage 10: Evidence-Based Scale Review & Procurement Authorization</h1>
+          <p class="page-subtitle">Standardized decision framework evaluating pilot KPI benchmarks, budget adherence, independent audit clearance, and state-wide rollout scope.</p>
+        </div>
+        <div>
+          <a href="dashboard.html" class="btn btn-secondary btn-sm">&larr; Dashboard</a>
+        </div>
+      </div>
+
+      <!-- Recommendation Banner -->
+      <div id="recommendation-banner" class="callout success" style="margin-bottom: 24px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span class="badge badge-scaled" id="rec-badge" style="font-size: 13px; padding: 6px 12px;">Scale Up Recommended</span>
+            <h2 style="font-size: 20px; font-weight: 800; color: var(--navy-primary); margin-top: 8px;" id="rec-title">
+              Evidence-based Recommendation: Ready for Scale Review
+            </h2>
+            <p id="rec-summary" style="font-size: 13px; color: var(--text-main); margin-top: 6px;">
+              Evaluating pilot performance evidence...
+            </p>
+          </div>
+          <div style="text-align: center; padding-left: 20px;">
+            <div id="rec-kpi-pass-circle" class="score-badge-large" style="width: 68px; height: 68px; font-size: 18px;">
+              100%
+            </div>
+            <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 4px; font-weight: 600;">KPI Benchmark Rate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Decision Factors Grid -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-header">
+          <h3 class="card-title">Evidence-based Scale Decision Factors Audit</h3>
+          <span style="font-size: 12px; color: var(--text-muted);">Deterministic evaluation criteria</span>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-5" style="text-align: center;">
+            <div style="padding: 12px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 4px;">
+              <span class="stat-label">1. KPI Benchmark Rate</span>
+              <div id="factor-kpi" style="font-size: 18px; font-weight: 800; color: var(--green-primary); margin: 4px 0;">3 / 3 Met</div>
+              <span style="font-size: 11px; color: var(--text-muted);">Target &ge; 80%</span>
+            </div>
+            <div style="padding: 12px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 4px;">
+              <span class="stat-label">2. Budget Adherence</span>
+              <div id="factor-budget" style="font-size: 16px; font-weight: 800; color: var(--green-primary); margin: 4px 0;">COMPLIANT</div>
+              <span style="font-size: 11px; color: var(--text-muted);">0% Cost Overrun</span>
+            </div>
+            <div style="padding: 12px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 4px;">
+              <span class="stat-label">3. 3rd Party Validation</span>
+              <div id="factor-validation" style="font-size: 16px; font-weight: 800; color: var(--navy-primary); margin: 4px 0;">APPROVED</div>
+              <span style="font-size: 11px; color: var(--text-muted);">NHA Tech Cell</span>
+            </div>
+            <div style="padding: 12px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 4px;">
+              <span class="stat-label">4. Deliverables Verified</span>
+              <div id="factor-milestones" style="font-size: 16px; font-weight: 800; color: var(--green-primary); margin: 4px 0;">100% PASSED</div>
+              <span style="font-size: 11px; color: var(--text-muted);">Milestones 1-4</span>
+            </div>
+            <div style="padding: 12px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 4px;">
+              <span class="stat-label">5. Operational Risk</span>
+              <div id="factor-risk" style="font-size: 16px; font-weight: 800; color: var(--green-primary); margin: 4px 0;">LOW RISK</div>
+              <span style="font-size: 11px; color: var(--text-muted);">Edge Fallback Ready</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-2-1">
+        <div>
+          <!-- Audited Evidence Breakdown -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Audited KPI Benchmark Results vs Baseline</h3>
+            </div>
+            <div class="card-body" style="padding: 0;">
+              <div class="table-container">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>KPI Performance Metric</th>
+                      <th>Baseline</th>
+                      <th>Actual Field Result</th>
+                      <th>Improvement</th>
+                      <th>Audit Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="evidence-kpi-tbody">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- Decision Action Form -->
+          <form id="scale-decision-form">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Formal Scale Authorization Decree</h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Authorized Decision <span class="required">*</span></label>
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label class="checkbox-label" style="display: flex; align-items: center; gap: 8px;">
+                      <input type="radio" name="radio-decision" value="Scale Up" checked>
+                      <span><strong>Authorize Full Scale-Up</strong> (Department / State-wide Rollout)</span>
+                    </label>
+                    <label class="checkbox-label" style="display: flex; align-items: center; gap: 8px;">
+                      <input type="radio" name="radio-decision" value="Conditional Scale">
+                      <span><strong>Conditional Scale-Up</strong> (Phase-2 Sandbox or Refinements)</span>
+                    </label>
+                    <label class="checkbox-label" style="display: flex; align-items: center; gap: 8px;">
+                      <input type="radio" name="radio-decision" value="Do Not Scale">
+                      <span><strong>Close Contract Without Scale</strong> (Benchmarks Unmet)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Scale Rollout Geographic Scope <span class="required">*</span></label>
+                  <select id="select-scope" class="form-control" required>
+                    <option value="District-Wide (All Municipal Clinics)">District-Wide (All Municipal Clinics)</option>
+                    <option value="Division-Wide (3 Major Districts)">Division-Wide (3 Major Districts)</option>
+                    <option value="State-wide (All 36 District Hospitals in Maharashtra)" selected>State-wide (All 36 District Hospitals in Maharashtra)</option>
+                    <option value="Pan-India (National Health Mission Rollout)">Pan-India (National Health Mission Rollout)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Sanctioned Scale Budget Ceiling (₹) <span class="required">*</span></label>
+                  <input type="number" id="input-scale-budget" class="form-control" value="25000000" placeholder="25000000" required>
+                  <div class="form-hint">Budget allocation under State Innovation Procurement Allocation.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Executive Rationale & Official Minutes <span class="required">*</span></label>
+                  <textarea id="input-scale-reasoning" class="form-control" rows="4" required></textarea>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-green" style="width: 100%; font-size: 14px; font-weight: 700;">
+                  ✍️ Authorize & Finalize Scale Decision Decree
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/rules.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/scale-decision.js"></script>
+</body>
+</html>
