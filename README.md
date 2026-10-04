@@ -442,12 +442,19 @@ These rules are deterministic and inspectable rather than hidden inside an opaqu
 
 ```text
 DviSetu/
+<<<<<<< HEAD
 │
 ├── index.html
 ├── overview.html
 ├── login.html
 ├── README.md
 │
+=======
+├── index.html                  # Formal initial login portal with 2-step role authentication
+├── overview.html               # Preserved landing portal with 10-step lifecycle tour & PS matrix
+├── login.html                  # Dedicated direct login route
+├── README.md                   # Complete documentation & 3-minute judge script
+>>>>>>> 0e9db03780df7c7e8dbb8a7e8583c568da3bd014
 ├── assets/
 │   ├── css/
 │   │   └── styles.css
