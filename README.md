@@ -1,142 +1,574 @@
-# DviSetu - Government Startup Innovation Procurement Platform
-**Smart India Hackathon 2026 &bull; Problem Statement SIH26136**  
+# DviSetu
+## Government–Startup Innovation Procurement Platform
+
+**Smart India Hackathon 2026 · Problem Statement SIH26136**  
 **Organization:** Government of Maharashtra  
 **Department:** Department of Skills, Employment, Entrepreneurship & Innovation  
-**Disclaimer:** *SIH26136 Demonstration Platform &bull; Prototype for presentation and evaluation purposes only.*
+**Solution Category:** Project Management  
+**Platform Type:** Web-based demonstration prototype
+
+> **Disclaimer:** DviSetu is an SIH26136 demonstration platform developed for presentation and evaluation purposes. It is not an official Government of Maharashtra procurement system.
 
 ---
 
-DviSetu is a formal, enterprise-grade government innovation procurement platform built to bridge the gap between public departments and eligible DPIIT startups. It replaces rigid lowest-bid (L1) tender mechanics with transparent capability matching, automated statutory eligibility screening, milestone-based performance contracting, independent technical validation, and evidence-based scale authorization decrees.
+## 1. Executive Summary
+
+**DviSetu** is a structured digital platform designed to connect government departments with eligible startups through a transparent, measurable and repeatable innovation-procurement lifecycle.
+
+The platform addresses a practical gap: government departments may identify innovative solutions but face difficulty moving from **problem identification → startup discovery → evaluation → pilot → performance measurement → procurement → scale-up** in a consistent manner.
+
+DviSetu brings these activities into one operational workflow.
+
+### Core lifecycle
+
+**Challenge → Discover → Screen → Evaluate → Select → Pilot → Measure → Validate → Procure → Scale**
+
+The platform supports three operational personas:
+
+- **Government Officer** — creates challenges, discovers startups, manages evaluations and pilots, verifies milestones and reviews scale decisions.
+- **Startup Founder** — discovers challenges, submits proposals, tracks application status, manages pilot deliverables and monitors milestone/payment status.
+- **Expert / Evaluator** — evaluates proposals using configurable multi-criteria scoring and records technical recommendations.
 
 ---
 
-## 🚀 How to Run the Application
-1. **Zero Setup / Double-Click Execution:**
-   - Double-click `index.html` in any modern web browser.
-   - Zero `npm`, zero build steps, zero external CDN dependencies, and 100% offline capable.
-2. **Local HTTP Server (Optional):**
-   - Run `python3 -m http.server 8000` or `npx serve .` from the repository root and open `http://localhost:8000/index.html`.
+## 2. Problem Addressed
+
+Traditional public procurement processes are primarily designed around compliant purchasing and price-based competition. Innovative startup solutions can require a different pathway because the government may need to:
+
+1. Define an outcome-oriented problem statement.
+2. Discover startups with relevant capabilities.
+3. Screen statutory and challenge-specific eligibility.
+4. Evaluate novel technical solutions fairly.
+5. Design a controlled pilot with measurable outcomes.
+6. Link milestones to deliverables and payment status.
+7. Measure actual performance against predefined KPIs.
+8. Obtain independent technical validation.
+9. Make an evidence-based decision on whether to scale the solution.
+
+DviSetu converts these requirements into a structured digital workflow rather than treating them as disconnected administrative activities.
 
 ---
 
-## ⏱️ 3-Minute Judge Demonstration Script
+## 3. Proposed Solution
 
-### **Stage 1: Operational Role Sign In & Portal Entry (0:00 - 0:30)**
-- Open `index.html` (Initial DviSetu Login Portal).
-- Select your operational role (**Government Officer**, **Startup Founder**, or **Expert / Evaluator**) to reveal the dedicated login form.
-- Use 1-click demonstration auto-fill or enter credentials, and click **"Sign In"** &rarr; routes directly to `gov/dashboard.html` (or respective role workspace).
-- Note: The full 10-step lifecycle tour & PS requirement matrix is preserved and directly accessible via `overview.html` or the header link.
+DviSetu provides a single operational workspace for the complete innovation procurement journey.
 
-### **Stage 2: Operational Dashboard & Multi-Step Challenge Creation (0:30 - 1:00)**
-- Review 8 operational indicators: Active Challenges, Applications Received, Pending Evaluations, Active Pilots, Milestones Due, Pilots Needing Attention, Completed Pilots, Scale Decrees.
-- Observe the Procurement Pipeline Operational Funnel (Challenges &rarr; Applications &rarr; Evaluated &rarr; Pilots &rarr; Scaled).
-- Test the debounced search and sector filters on the challenges table.
-- Click **"+ Create New Challenge"** &rarr; `gov/create-challenge.html`.
-- Step through the 4-step wizard:
-  1. *Administrative Scope:* Department, Unit, Sector, Problem Statement, Baseline & Outcome.
-  2. *Commercials & Governance:* Budget, Duration, Capability Tags, Cybersecurity & Risk clauses.
-  3. *Eligibility Criteria:* Mandatory GSTIN, DPIIT, Certifications, Turnover threshold, and Conflict undertaking.
-  4. *Success Metrics:* Dynamic KPI table with Baseline, Target, Unit, and Higher/Lower is better.
-- Click **"Publish Challenge"** &rarr; Auto-redirects to Command Center (`gov/challenge-detail.html`).
+### A. Government Challenge Management
 
-### **Stage 3: Startup Discovery, Capability Matching & Eligibility (1:00 - 1:30)**
-- Click **"Startup Discovery"** in the sidebar (`gov/startups.html`).
-- Select **"Match against Challenge: CH-101"** & filter by sector/stage/certification.
-- View live Capability Overlap % (e.g. 92% Match with matched/missing badges) and statutory credentials.
-- Navigate to `gov/challenge-detail.html?id=CH-101`:
-  - **Matched Startups Tab:** Transparent match breakdown (matched tags, missing tags, sector bonus).
-  - **Applications & Eligibility Tab:** Automated audit checklist with explicit legal reasons for GST, DPIIT, ISO, Turnover, and Conflict declarations.
-  - Click **"Shortlist"** &rarr; Logged to audit trail.
+Government officers can create outcome-oriented innovation challenges through a structured wizard covering:
 
-### **Stage 4: Expert Multi-Criteria Evaluation (1:30 - 2:00)**
-- Switch role to **Expert Evaluator** (via Topbar "Switch Role" button or navigate to `expert/evaluate.html`).
-- Click **"⚙️ Configure Weights"** to observe non-hardcoded, customizable criteria percentages.
-- Adjust the 6 factor sliders: Feasibility (25%), Impact (25%), Innovation (20%), Scalability (15%), Cost (10%), Readiness (5%).
-- Observe live total weighted score calculation (e.g., `87.0 / 100`) and scoring summary table.
-- Click **"Submit Official Score"** &rarr; Score logged with evaluator audit record.
+- Department and administrative unit
+- Sector
+- Problem statement
+- Current baseline
+- Expected outcome
+- Budget
+- Pilot duration
+- Required capabilities
+- Cybersecurity and risk requirements
+- Eligibility requirements
+- Success KPIs
 
-### **Stage 5: Pilot Execution, Milestone Tracking & Payment Tranches (2:00 - 2:30)**
-- Navigate to `gov/pilot.html?id=PL-901` (MedQ HealthTech OPD Queue Pilot).
-- Inspect the **Sequential Visual Timeline Track** and **Payment Status / Milestone Disbursement Tracking** bar (no fake bank claims).
-- Under Milestone Verification, observe the 7-state transitions (`Not Started`, `In Progress`, `Submitted`, `Under Review`, `Approved`, `Rejected`, `Completed`).
-- Click **"✓ Authorize Disbursement"** on Milestone 2:
-  - Milestone status flips to **Approved / Disbursed**.
-  - Payment progress bar advances live.
-- Under **KPI Performance Audit**, edit actual achieved metric (e.g., set wait time to `35 min`) & click **"Save & Update KPI Audit Metrics"** &rarr; Auto-evaluates to **TARGET ACHIEVED (+70.8% Improvement)**.
+### B. Startup Discovery & Capability Matching
 
-### **Stage 6: Independent Validation & Evidence-based Scale Review (2:30 - 3:00)**
-- Under **Independent Third-Party Technical Validation**, review Agency (NHA Tech Evaluation Cell), Reviewer, Reference ID, and set status to **Approved**.
-- Click **"Proceed to Evidence-based Scale Review (Step 10)"** &rarr; `gov/scale-decision.html`.
-- Inspect the **5 Decision Factor Indicators** (KPI benchmark rate &ge; 80%, Budget compliance, 3rd-party validation, deliverables verified, operational risk).
-- Review automated recommendation: **Ready for State-Wide Scale**.
-- Select scope: **State-wide (All 36 District Hospitals in Maharashtra)**, confirm budget allocation, and click **"✍️ Authorize & Finalize Scale Decision Decree"**.
-- Navigate to `gov/audit-trail.html` &rarr; View complete chronological, immutable log of every action taken!
+Government users can search and filter the startup repository and compare startup capabilities against challenge requirements.
+
+The demonstration includes a transparent matching mechanism that shows:
+
+- Capability tags
+- Matched capabilities
+- Missing capabilities
+- Sector alignment
+- Overall capability-match score
+
+The objective is not to replace human decision-making, but to reduce discovery effort and make the basis of a recommendation visible.
+
+### C. Eligibility Screening
+
+A structured checklist verifies configurable criteria such as:
+
+- GSTIN
+- DPIIT recognition/certificate
+- Required certifications
+- Turnover threshold
+- Conflict-of-interest declaration
+
+Each criterion produces an explicit status and reason so that screening is auditable.
+
+### D. Expert Evaluation
+
+Experts can evaluate proposals using configurable weighted criteria.
+
+The demonstration includes six evaluation dimensions:
+
+| Criterion | Demonstration Weight |
+|---|---:|
+| Technical Feasibility | 25% |
+| Expected Impact | 25% |
+| Innovation | 20% |
+| Scalability | 15% |
+| Cost Effectiveness | 10% |
+| Implementation Readiness | 5% |
+
+Weights are configurable in the demonstration rather than being hard-coded into the evaluation interface.
+
+### E. Pilot Management
+
+Selected startups can be moved into a controlled pilot workflow.
+
+Each pilot contains:
+
+- Objectives
+- Milestones
+- Deliverables
+- Payment/disbursement status
+- KPI targets
+- Evidence
+- Verification status
+- Technical validation
+
+Milestones follow a defined state machine:
+
+**Not Started → In Progress → Submitted → Under Review → Approved / Rejected → Completed**
+
+### F. KPI Performance Audit
+
+DviSetu records:
+
+- Baseline
+- Target
+- Actual result
+- Measurement unit
+- Direction of improvement
+- Achievement status
+
+The platform can calculate direction-aware improvement for both:
+
+- Higher-is-better KPIs
+- Lower-is-better KPIs
+
+This helps shift the pilot decision from subjective claims toward measurable outcomes.
+
+### G. Independent Validation
+
+Before scale-up, the demonstration provides an independent technical-validation stage where the reviewer, agency/reference information and validation status can be recorded.
+
+### H. Evidence-Based Scale Review
+
+The final stage evaluates multiple evidence points, including:
+
+- KPI performance
+- Budget adherence
+- Independent validation
+- Deliverable verification
+- Operational risk
+
+The demonstration produces one of three outcomes:
+
+**Scale Up · Conditional Scale · Do Not Scale**
+
+The final scale decision remains an administrative decision supported by recorded evidence; the prototype does not claim to autonomously make a legal procurement decision.
+
+### I. Audit Trail
+
+Important actions are recorded in a chronological audit ledger, providing visibility into:
+
+- Who performed an action
+- What action occurred
+- When it occurred
+- What stage of the lifecycle was affected
 
 ---
 
-## 🧮 Pure Business Rules Engine (`assets/js/rules.js`)
-All core procurement logic is decoupled into pure, deterministic mathematical functions:
-1. `calculateMatchScore(challengeTags, startupTags, challengeSector, startupSector)`:
-   - Tag overlap (80% weight) + sector alignment (20% bonus). Returns `{ score, matchedTags, missingTags, sectorAligned }`.
-2. `checkEligibility(startup, criteria)`:
-   - Evaluates GSTIN, DPIIT certificate, quality/security certifications, financial turnover, and conflict declarations. Returns `{ eligible, status, score, checklist }`.
-3. `calculateWeightedScore(scores, customWeights)`:
-   - Configurable multi-criteria evaluation with normalization.
-4. `calculateKPIImprovement(baseline, target, actual, higherIsBetter)`:
-   - Evaluates percentage improvement with direction-aware pass/fail thresholds.
-5. `calculateScaleRecommendation(kpiResults, budgetAdherence, validationApproved)`:
-   - Evidence-based scale readiness calculation (`Scale Up`, `Conditional Scale`, `Do Not Scale`).
-6. `formatINR(amount)`:
-   - Indian numbering system formatter (₹ Lakhs / Crores).
+## 4. Why DviSetu Is Different
+
+DviSetu is not simply a startup directory or procurement dashboard.
+
+It connects the complete lifecycle.
+
+| Common Gap | DviSetu Approach |
+|---|---|
+| Difficult startup discovery | Capability-based startup matching |
+| Manual eligibility checking | Structured eligibility checklist |
+| Difficult comparison of novel solutions | Configurable weighted evaluation |
+| Unstructured pilots | Milestone-based pilot management |
+| Weak performance evidence | Baseline → Target → Actual KPI tracking |
+| Unclear payment progress | Milestone/disbursement status |
+| Subjective scale decisions | Evidence-based scale review |
+| Limited traceability | Chronological audit trail |
+| Fragmented stakeholders | Government, Expert and Startup workspaces |
+
+The key idea is to create a **repeatable bridge between innovation discovery and accountable public procurement**.
 
 ---
 
-## 📁 Repository Directory Structure
+## 5. User Roles
 
+### Government Officer
+
+Primary responsibilities:
+
+- Create and publish innovation challenges
+- Search and match startups
+- Review applications
+- Verify eligibility
+- Shortlist proposals
+- Manage pilots
+- Approve milestone progress
+- Review KPI performance
+- Review independent validation
+- Authorize the demonstrated scale-review workflow
+- Inspect the audit trail
+
+### Startup Founder
+
+Primary responsibilities:
+
+- Browse government challenges
+- Review eligibility requirements
+- Submit technical/commercial proposals
+- Track application status
+- View pilot requirements
+- Submit milestone evidence
+- Track milestone and payment status
+
+### Expert / Evaluator
+
+Primary responsibilities:
+
+- Review assigned proposals
+- Configure evaluation weights
+- Score proposals
+- Add technical observations
+- Submit evaluation records
+
+---
+
+## 6. End-to-End Workflow
+
+```text
+┌────────────────────┐
+│ 1. Challenge       │
+│    Definition      │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ 2. Startup         │
+│    Discovery       │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ 3. Eligibility     │
+│    Screening       │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ 4. Expert          │
+│    Evaluation      │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ 5. Selection &     │
+│    Pilot Setup     │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ 6. Milestones &    │
+│    Deliverables    │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ 7. KPI Performance │
+│    Audit           │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ 8. Independent     │
+│    Validation      │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ 9. Evidence Review │
+│    for Scale       │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ 10. Scale /        │
+│     Decision Record│
+└────────────────────┘
 ```
+
+---
+
+## 7. Demonstration Architecture
+
+DviSetu is intentionally implemented as a **self-contained, browser-based prototype** so that evaluators can run the complete workflow without installing a backend or external services.
+
+### Architecture
+
+```text
+                    ┌──────────────────────┐
+                    │     DviSetu UI       │
+                    │ HTML / CSS / JS      │
+                    └──────────┬───────────┘
+                               │
+             ┌─────────────────┼─────────────────┐
+             ↓                 ↓                 ↓
+      ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
+      │ Government  │   │   Startup   │   │   Expert    │
+      │ Workspace   │   │ Workspace   │   │ Workspace   │
+      └─────────────┘   └─────────────┘   └─────────────┘
+                               │
+                               ↓
+                    ┌──────────────────────┐
+                    │ Business Rules       │
+                    │ Engine               │
+                    └──────────┬───────────┘
+                               ↓
+                    ┌──────────────────────┐
+                    │ Local Demo State     │
+                    │ / LocalStorage       │
+                    └──────────┬───────────┘
+                               ↓
+                    ┌──────────────────────┐
+                    │ Audit / Documents /  │
+                    │ Lifecycle State      │
+                    └──────────────────────┘
+```
+
+### Design principle
+
+The prototype separates:
+
+- Presentation/UI
+- Business rules
+- Seed demonstration data
+- State management
+- Role-specific workflows
+
+This makes the demonstration easier to understand and provides a clear path toward a production architecture.
+
+---
+
+## 8. Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript ES6 |
+| UI | Custom responsive government-enterprise design system |
+| State | LocalStorage-based demonstration state |
+| Business Logic | Pure JavaScript rules engine |
+| Data | Seeded demonstration data |
+| Runtime | Modern web browser |
+| Deployment for Demo | Static hosting / local HTTP server |
+
+### External dependency approach
+
+The current demonstration is designed to run without external CDN dependencies and can operate offline.
+
+This makes the prototype suitable for:
+
+- SIH demonstrations
+- Evaluation laptops
+- Offline presentations
+- Controlled judging environments
+
+---
+
+## 9. Business Rules Engine
+
+Core procurement logic is separated into deterministic functions in:
+
+`assets/js/rules.js`
+
+### Capability Matching
+
+`calculateMatchScore(...)`
+
+Combines:
+
+- Required/matched capability tags
+- Sector alignment
+
+Returns:
+
+- Match score
+- Matched capabilities
+- Missing capabilities
+- Sector alignment
+
+### Eligibility
+
+`checkEligibility(...)`
+
+Evaluates configurable criteria including:
+
+- GSTIN
+- DPIIT
+- Certifications
+- Turnover
+- Conflict declaration
+
+### Weighted Evaluation
+
+`calculateWeightedScore(...)`
+
+Calculates a normalized score using configurable evaluation weights.
+
+### KPI Evaluation
+
+`calculateKPIImprovement(...)`
+
+Supports both:
+
+- Higher-is-better
+- Lower-is-better
+
+### Scale Recommendation
+
+`calculateScaleRecommendation(...)`
+
+Combines pilot evidence to classify the demonstrated scale readiness as:
+
+- Scale Up
+- Conditional Scale
+- Do Not Scale
+
+These rules are deterministic and inspectable rather than hidden inside an opaque AI model.
+
+---
+
+## 10. Repository Structure
+
+```text
 DviSetu/
-├── index.html                  # Formal initial login portal with 2-step role authentication
-├── overview.html               # Preserved landing portal with 10-step lifecycle tour & PS matrix
-├── login.html                  # Dedicated direct login route
-├── README.md                   # Complete documentation & 3-minute judge script
-├── docs/
-│   └── SI26136_IMPLEMENTATION_PLAN.md # Comprehensive architecture & inspection plan
+│
+├── index.html
+├── overview.html
+├── login.html
+├── README.md
+│
 ├── assets/
 │   ├── css/
-│   │   └── styles.css          # Government enterprise design system (tokens, tables, wizard, audit)
+│   │   └── styles.css
+│   │
 │   └── js/
-│       ├── rules.js            # Pure business rules engine
-│       ├── data.js             # Seed demonstration mock data (challenges, startups, pilots, audits)
-│       ├── store.js            # LocalStorage state manager with audit log & document methods
-│       ├── app.js              # Administrative shell, role switcher, stepper & footer disclaimer
-│       ├── index.js            # Landing page interactive tour controller
-│       ├── gov-dashboard.js    # Operational dashboard with 8 metrics & debounced filter
-│       ├── challenges.js       # Filterable challenges repository
-│       ├── create-challenge.js # 4-step challenge creation wizard controller
-│       ├── startups.js         # Government Startup Discovery & capability matching controller
-│       ├── challenge-detail.js # Command center: matching, eligibility checklist, selection
-│       ├── gov-pilot.js        # Pilot oversight: milestone state machine, payments, KPI audit, validation
-│       ├── scale-decision.js   # Evidence-based scale review & decree generator
-│       ├── audit-trail.js      # Chronological audit trail ledger controller
-│       ├── evaluate.js         # Expert workspace with configurable weights & score log
-│       ├── startup-dashboard.js# Startup portal overview & milestone tracking
-│       ├── browse-challenges.js# Startup challenge discovery with eligibility check
-│       ├── apply.js            # Proposal submission with statutory declarations
-│       └── my-pilot.js         # Startup deliverable evidence uploads & disbursement status
+│       ├── rules.js
+│       ├── data.js
+│       ├── store.js
+│       ├── app.js
+│       ├── index.js
+│       ├── gov-dashboard.js
+│       ├── challenges.js
+│       ├── create-challenge.js
+│       ├── startups.js
+│       ├── challenge-detail.js
+│       ├── gov-pilot.js
+│       ├── scale-decision.js
+│       ├── audit-trail.js
+│       ├── evaluate.js
+│       ├── startup-dashboard.js
+│       ├── browse-challenges.js
+│       ├── apply.js
+│       └── my-pilot.js
+│
 ├── gov/
-│   ├── dashboard.html          # Operational metrics, pipeline funnel, active pilots
-│   ├── challenges.html         # All published challenges listing
-│   ├── create-challenge.html   # 4-step challenge creation wizard
-│   ├── startups.html           # Startup discovery & capability repository
-│   ├── challenge-detail.html   # 4-tab challenge command center
-│   ├── pilot.html              # Pilot management, milestone approvals, KPI audit, validation
-│   ├── scale-decision.html     # Evidence-based scale authorization decree generator
-│   └── audit-trail.html        # Transparent administrative audit ledger
+│   ├── dashboard.html
+│   ├── challenges.html
+│   ├── create-challenge.html
+│   ├── startups.html
+│   ├── challenge-detail.html
+│   ├── pilot.html
+│   ├── scale-decision.html
+│   └── audit-trail.html
+│
 ├── expert/
-│   └── evaluate.html           # 6-factor proposal evaluation workspace with configurable weights
+│   └── evaluate.html
+│
 └── startup/
-    ├── dashboard.html          # Startup bid tracking & active pilot overview
-    ├── browse-challenges.html  # Search & filter open government challenges
-    ├── apply.html              # Technical proposal & commercial submission form
-    └── my-pilot.html           # Milestone execution, proof upload & payout tracking
+    ├── dashboard.html
+    ├── browse-challenges.html
+    ├── apply.html
+    └── my-pilot.html
 ```
+
+---
+
+## 11. How to Run
+
+### Option 1 — Direct Browser
+
+The prototype can be opened directly by launching:
+
+```text
+index.html
+```
+
+in a modern browser.
+
+### Option 2 — Local HTTP Server
+
+From the repository root:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/index.html
+```
+
+No package installation or build process is required for the current demonstration.
+
+---
+
+# 12. Key Innovation
+
+### From procurement transactions to an innovation lifecycle
+
+DviSetu focuses on the part of public procurement where innovative startup solutions are difficult to handle through conventional workflows.
+
+The platform introduces a structured mechanism for:
+
+**Discover → Verify → Evaluate → Pilot → Measure → Validate → Scale**
+
+This creates a repeatable operating model that can potentially be adapted across departments and sectors.
+
+---
+
+
+# 13. Expected Impact
+
+### For Government Departments
+
+- Faster discovery of relevant startup capabilities
+- Structured challenge formulation
+- Consistent evaluation
+- Better pilot governance
+- Measurable outcome tracking
+- Evidence-supported scale decisions
+- Improved auditability
+
+### For Startups
+
+- Greater visibility of government challenges
+- Clear eligibility requirements
+- Transparent evaluation stages
+- Structured pilot opportunities
+- Milestone visibility
+- Better understanding of scale-up requirements
+
+### For the Public Procurement Ecosystem
+
+- Encourages innovation-led procurement
+- Reduces fragmented workflows
+- Improves traceability
+- Creates measurable pilot-to-scale pathways
+- Supports responsible adoption of innovative solutions
+
+---
+
+**Smart India Hackathon 2026 · SIH26136**  
+**Government of Maharashtra · Department of Skills, Employment, Entrepreneurship & Innovation**
