@@ -99,8 +99,6 @@ DviSetu/
 ├── overview.html               # Preserved landing portal with 10-step lifecycle tour & PS matrix
 ├── login.html                  # Dedicated direct login route
 ├── README.md                   # Complete documentation & 3-minute judge script
-├── docs/
-│   └── SI26136_IMPLEMENTATION_PLAN.md # Comprehensive architecture & inspection plan
 ├── assets/
 │   ├── css/
 │   │   └── styles.css          # Government enterprise design system (tokens, tables, wizard, audit)
